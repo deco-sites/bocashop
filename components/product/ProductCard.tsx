@@ -53,13 +53,13 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const {
     url,
     productID,
-    name,
     image: images,
     offers,
     isVariantOf,
   } = product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
+  const { name } = isVariantOf ?? {};
 
   return (
     <div
@@ -68,7 +68,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
       class="w-full group"
     >
       <a href={url} aria-label="product link">
-        <div class="relative w-full">
+        <div class="relative w-full overflow-hidden">
           <div class="absolute top-0 right-0">
             <WishlistIcon
               productId={isVariantOf?.productGroupID}
@@ -95,34 +95,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                backdropFilter: "blur(2px)",
-              }}
-            >
+            <div class="absolute bottom-[-50px] flex flex-col items-center gap-2 w-full p-2 bg-opacity-100 group-hover:bottom-0 transition-all bg-white border-default border-t-[1px]">
+              <Text>AÑADIR TALLE</Text>
               <Sizes {...product} />
-              {/* FIXME: Understand why fresh breaks rendering this component */}
-              <ButtonSendEvent
-                as="a"
-                href={product.url}
-                event={{
-                  name: "select_item",
-                  params: {
-                    item_list_name: itemListName,
-                    items: [
-                      mapProductToAnalyticsItem({
-                        product,
-                        price,
-                        listPrice,
-                      }),
-                    ],
-                  },
-                }}
-              >
-                Visualizar Produto
-              </ButtonSendEvent>
             </div>
           )}
         </div>
@@ -138,10 +113,35 @@ function ProductCard({ product, preload, itemListName }: Props) {
             <Text class="line-through" variant="list-price" tone="base-300">
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </Text>
-            <Text variant="caption" tone="secondary">
+            <Text
+              variant="caption"
+              tone="secondary"
+              class="override:text-[20px] text-primary"
+            >
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
+          {/* FIXME: Understand why fresh breaks rendering this component */}
+          <ButtonSendEvent
+            as="a"
+            href={product.url}
+            class="rounded-full bg-primary uppercase"
+            event={{
+              name: "select_item",
+              params: {
+                item_list_name: itemListName,
+                items: [
+                  mapProductToAnalyticsItem({
+                    product,
+                    price,
+                    listPrice,
+                  }),
+                ],
+              },
+            }}
+          >
+            Comprar
+          </ButtonSendEvent>
         </div>
       </a>
     </div>

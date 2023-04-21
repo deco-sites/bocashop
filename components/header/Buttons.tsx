@@ -59,7 +59,7 @@ function CartButton() {
     <Button
       {...dataDeco}
       variant="icon"
-      class="relative"
+      class="relative text-white"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {

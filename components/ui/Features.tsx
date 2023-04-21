@@ -33,7 +33,7 @@ function FeatureItem({ icon: id = "Truck", title, description }: Feature) {
       onClick={() => {
         open.value = true;
       }}
-      class="even:text-[#fabe08] odd:text-[#00438a]"
+      class="even:text-[#fabe08] odd:text-primary"
     >
       <div class="flex items-center gap-4 py-6 sm:py-0 sm:px-8 hover:translate-y-[-10px] transition-transform">
         <Icon

@@ -3702,10 +3702,15 @@
         "suggestions": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
           "title": "Suggestions"
+        },
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Logo"
         }
       },
       "required": [
-        "alerts"
+        "alerts",
+        "logo"
       ],
       "title": "deco-sites/bocashop/components/header/Header.tsx@Props"
     },

@@ -109,27 +109,13 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:py-6 md:px-20">
-      <div class="flex items-center gap-4">
+    <div class="flex w-full max-w-[500px] flex-col p-4 md:py-6 md:px-20">
+      <div class="flex bg-white items-center gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-base-200"
+          class="flex-grow flex gap-3 pl-[15px] border border-base-200 h-[40px]"
         >
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-base-300"
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </Button>
           <input
             ref={searchInputRef}
             id="search-input"
@@ -153,21 +139,20 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <button
-            type="button"
-            aria-label="Clean search"
-            class="focus:outline-none"
+          <Button
+            variant="icon"
+            aria-label="Search"
+            htmlFor="searchbar"
             tabIndex={-1}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (searchInputRef.current === null) return;
-
-              searchInputRef.current.value = "";
-              setSearch("");
-            }}
           >
-            <Text variant="caption">limpar</Text>
-          </button>
+            <Icon
+              class="text-base-300"
+              id="MagnifyingGlass"
+              width={20}
+              height={20}
+              strokeWidth={0.01}
+            />
+          </Button>
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>

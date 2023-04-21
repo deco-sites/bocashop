@@ -1,5 +1,6 @@
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
+import Icon from "../ui/Icon.tsx";
 import { headerHeight } from "./constants.ts";
 
 export interface INavItem {
@@ -14,10 +15,20 @@ function NavItem({ item }: { item: INavItem }) {
 
   return (
     <li class="group flex items-center">
-      <a href={href} class="px-4 py-3">
-        <Text class="group-hover:underline" variant="menu">
+      <a
+        href={href}
+        class="px-4 py-3 flex text-primary-content items-center gap-[10px]"
+      >
+        <Text
+          class="group-hover:underline uppercase"
+          variant="menu"
+          tone="primary-content"
+        >
           {label}
         </Text>
+        {children && children.length && (
+          <Icon id="ChevronDown" width={14} height={14} strokeWidth={1} />
+        )}
       </a>
 
       {children && children.length > 0 &&

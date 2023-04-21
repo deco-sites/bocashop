@@ -17,12 +17,14 @@ function Alert({ alerts = [], interval = 5 }: Props) {
 
   return (
     <div id={id}>
-      <Slider class="bg-secondary gap-6 scrollbar-none">
+      <Slider class="bg-[#003169] gap-6 scrollbar-none">
         {alerts.map((alert) => (
           <Text
-            class="flex justify-center items-center w-screen h-[38px]"
+            class="flex m-auto relative w-fit justify-center items-center h-[38px] font-bold 
+            after:w-[15px] after:h-[15px] after:border-white after:border-b-[1px] after:border-r-[1px] after:absolute after:bottom-[6px] after:right-[-8px]
+            before:w-[15px] before:h-[15px] before:border-white before:border-t-[1px] before:border-l-[1px] before:absolute before:top-[6px] before:left-[-8px]"
             variant="caption"
-            tone="secondary-content"
+            tone="secondary"
           >
             {alert}
           </Text>

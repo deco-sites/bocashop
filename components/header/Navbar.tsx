@@ -4,13 +4,15 @@ import Button from "deco-sites/fashion/components/ui/Button.tsx";
 
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
-import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
+import Searchbar from "deco-sites/fashion/components/search/Searchbar.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 
-function Navbar({ items, searchbar }: {
+function Navbar({ items, searchbar, logo }: {
   items: INavItem[];
   searchbar: SearchbarProps;
+  logo: string;
 }) {
   return (
     <>
@@ -27,7 +29,12 @@ function Navbar({ items, searchbar }: {
           style={{ minHeight: navbarHeight }}
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Image
+            src={logo}
+            width={98}
+            height={54}
+            alt="Logo"
+          />
         </a>
 
         <div class="flex gap-1">
@@ -37,41 +44,58 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-3">
-        <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
-          </a>
+      <div class="hidden  md:flex flex-col w-full">
+        <div class="flex bg-primary  flex-row justify-between items-center w-full pl-2 pr-3">
+          <div class="flex-none w-44">
+            <a
+              href="/"
+              aria-label="Store logo"
+              class="block px-4 py-3 w-[160px]"
+            >
+              <Image
+                src={logo}
+                width={98}
+                height={54}
+                alt="Logo"
+              />
+            </a>
+          </div>
+          <Searchbar {...searchbar} variant="mobile" />
+
+          <div class="flex-none w-44 flex items-center justify-end gap-2">
+            <HeaderButton variant="search" />
+
+            <Button
+              as="a"
+              variant="icon"
+              href="/login"
+              aria-label="Log in"
+              class="text-white"
+            >
+              <Icon id="User" width={20} height={20} strokeWidth={0.4} />
+            </Button>
+            <Button
+              as="a"
+              variant="icon"
+              href="/wishlist"
+              aria-label="Wishlist"
+              class="text-white"
+            >
+              <Icon
+                id="Heart"
+                width={20}
+                height={20}
+                strokeWidth={2}
+                fill="none"
+              />
+            </Button>
+            <HeaderButton variant="cart" />
+          </div>
         </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
-          <Button
-            as="a"
-            variant="icon"
-            href="/login"
-            aria-label="Log in"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </Button>
-          <Button
-            as="a"
-            variant="icon"
-            href="/wishlist"
-            aria-label="Wishlist"
-          >
-            <Icon
-              id="Heart"
-              width={20}
-              height={20}
-              strokeWidth={2}
-              fill="none"
-            />
-          </Button>
-          <HeaderButton variant="cart" />
+        <div class="">
+          <div class="flex-auto flex justify-center bg-primary-focus">
+            {items.map((item) => <NavItem item={item} />)}
+          </div>
         </div>
       </div>
     </>

@@ -123,10 +123,24 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
   );
 }
 
+function Dots({ images }: Props) {
+  return (
+    <>
+      <SliderDots class="w-full gap-4 z-10 ">
+        {images?.map((_) => (
+          <div class="py-6">
+            <div class="w-[7px] h-[7px] rounded-full bg-primary opacity-10 group-disabled:opacity-100 group-disabled:w-[10px] group-disabled:h-[10px]" />
+          </div>
+        ))}
+      </SliderDots>
+    </>
+  );
+}
+
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
+      <div class="absolute flex items-center justify-center z-10 top-1/2 translate-y-1/2">
         <Button
           variant="icon"
           data-slide="prev"
@@ -140,7 +154,7 @@ function Controls() {
           />
         </Button>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
+      <div class="absolute flex items-center justify-center z-10 top-1/2 right-0 translate-y-1/2">
         <Button
           variant="icon"
           data-slide="next"
@@ -164,9 +178,9 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
+      class="flex flex-col relative"
     >
-      <Slider class="col-span-full row-span-full scrollbar-none gap-6">
+      <Slider class="scrollbar-none gap-6">
         {images?.map((image, index) => (
           <BannerItem image={image} lcp={index === 0 && preload} />
         ))}
@@ -174,7 +188,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
 
       <Controls />
 
-      <ProgressiveDots images={images} interval={interval} />
+      <Dots images={images} />
 
       <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
     </div>
