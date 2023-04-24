@@ -1,4 +1,3 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import {
@@ -17,14 +16,8 @@ export interface Banner {
   mobile: LiveImage;
   /** @description Image's alt text */
   alt: string;
-  action?: {
-    /** @description when user clicks on the image, go to this link */
+  action: {
     href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
-    /** @description Button label */
     label: string;
   };
 }
@@ -51,7 +44,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
+    <div class="relative min-h-[350px] max-w-[100vw] w-full overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -65,8 +58,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             media="(min-width: 768px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={desktop}
-            width={1440}
-            height={600}
+            width={2669}
+            height={590}
           />
           <img
             class="object-cover w-full sm:h-full"
@@ -75,20 +68,6 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             alt={alt}
           />
         </Picture>
-        {action && (
-          <div
-            class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 p-4 rounded"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <Text variant="heading-1" tone="base-100">
-              {action.title}
-            </Text>
-            <Text variant="heading-3" tone="base-100">
-              {action.subTitle}
-            </Text>
-            <Button variant="outline">{action.label}</Button>
-          </div>
-        )}
       </a>
     </div>
   );
@@ -140,7 +119,7 @@ function Dots({ images }: Props) {
 function Controls() {
   return (
     <>
-      <div class="absolute flex items-center justify-center z-10 top-1/2 translate-y-1/2">
+      <div class="absolute flex items-center justify-center z-10 top-1/2 translate-y-[-50%]">
         <Button
           variant="icon"
           data-slide="prev"
@@ -154,7 +133,7 @@ function Controls() {
           />
         </Button>
       </div>
-      <div class="absolute flex items-center justify-center z-10 top-1/2 right-0 translate-y-1/2">
+      <div class="absolute flex items-center justify-center z-10 top-1/2 right-0 translate-y-[-50%]">
         <Button
           variant="icon"
           data-slide="next"
@@ -178,15 +157,16 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="flex flex-col relative"
+      class="flex flex-col bg-[#f3f3f3]"
     >
-      <Slider class="scrollbar-none gap-6">
-        {images?.map((image, index) => (
-          <BannerItem image={image} lcp={index === 0 && preload} />
-        ))}
-      </Slider>
-
-      <Controls />
+      <div class="relative">
+        <Slider class="scrollbar-none gap-6" snap="min-w-full">
+          {images?.map((image, index) => (
+            <BannerItem image={image} lcp={index === 0 && preload} />
+          ))}
+        </Slider>
+        <Controls />
+      </div>
 
       <Dots images={images} />
 

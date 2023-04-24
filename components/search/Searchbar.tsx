@@ -109,7 +109,7 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex w-full max-w-[500px] flex-col p-4 md:py-6 md:px-20">
+    <div class="flex w-full max-w-[550px] flex-col p-4 md:py-6">
       <div class="flex bg-white items-center gap-4">
         <form
           id="searchbar"
@@ -146,11 +146,11 @@ function Searchbar({
             tabIndex={-1}
           >
             <Icon
-              class="text-base-300"
+              class="text-primary"
               id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
+              width={25}
+              height={25}
+              strokeWidth={2}
             />
           </Button>
         </form>

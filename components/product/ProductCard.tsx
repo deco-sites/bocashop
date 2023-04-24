@@ -1,14 +1,13 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import WishlistIcon from "deco-sites/fashion/islands/WishlistButton.tsx";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
 import { useVariantPossibilities } from "deco-sites/fashion/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import ButtonSendEvent from "deco-sites/fashion/components/ButtonSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import SkuAddToCart from "../../islands/SkuAddToCart.tsx";
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
@@ -17,21 +16,23 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
  */
 function Sizes(product: Product) {
   const possibilities = useVariantPossibilities(product);
+
   const options = Object.entries(
-    possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {},
+    possibilities["TAMANHO"] ?? possibilities["Tamanho"] ??
+      possibilities["Talle"] ?? {},
   );
 
   return (
     <ul class="flex justify-center items-center gap-2">
-      {options.map(([value, urls]) => {
-        const url = urls.find((url) => url === product.url) || urls[0];
+      {options.map(([value, { url, available, id }]) => {
+        // const url = urls.find((url) => url === product.url) || urls[0];
 
         return (
           <a href={url}>
             <Avatar
               variant="abbreviation"
               content={value}
-              disabled={url === product.url}
+              disabled={!available}
             />
           </a>
         );
@@ -56,10 +57,17 @@ function ProductCard({ product, preload, itemListName }: Props) {
     image: images,
     offers,
     isVariantOf,
+    additionalProperty,
   } = product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
   const { name } = isVariantOf ?? {};
+
+  const genre = additionalProperty?.find((property) =>
+    property.name == "Género"
+  );
+
+  console.log(additionalProperty);
 
   return (
     <div
@@ -68,19 +76,12 @@ function ProductCard({ product, preload, itemListName }: Props) {
       class="w-full group"
     >
       <a href={url} aria-label="product link">
-        <div class="relative w-full overflow-hidden">
-          <div class="absolute top-0 right-0">
-            <WishlistIcon
-              productId={isVariantOf?.productGroupID}
-              sku={productID}
-              title={name}
-            />
-          </div>
+        <div class="relative w-full overflow-hidden border-[1px] pb-[32px]">
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={274}
+            height={274}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -89,36 +90,39 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
+            width={274}
+            height={274}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           {seller && (
-            <div class="absolute bottom-[-50px] flex flex-col items-center gap-2 w-full p-2 bg-opacity-100 group-hover:bottom-0 transition-all bg-white border-default border-t-[1px]">
+            <div class="absolute bottom-[-40px] flex flex-col items-center gap-2 w-full p-2 bg-opacity-100 group-hover:bottom-0 transition-all bg-white border-default border-t-[1px]">
               <Text>AÑADIR TALLE</Text>
-              <Sizes {...product} />
+              {/* <Sizes {...product} /> */}
+              <SkuAddToCart {...product} />
             </div>
           )}
         </div>
 
         <div class="flex flex-col gap-1 py-2">
+          {genre && genre.value && (
+            <div>
+              <Text>{genre.value}</Text>
+            </div>
+          )}
           <Text
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="overflow-hidden text-ellipsis line-clamp-2"
             variant="caption"
           >
             {name}
           </Text>
           <div class="flex items-center gap-2">
-            <Text class="line-through" variant="list-price" tone="base-300">
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
             <Text
-              variant="caption"
-              tone="secondary"
-              class="override:text-[20px] text-primary"
+              variant="heading-3"
+              tone="primary"
+              class="override:text-[20px] text-primary font-bold"
             >
-              {formatPrice(price, offers!.priceCurrency!)}
+              {formatPrice(price, offers!.priceCurrency!, "en-AR")}
             </Text>
           </div>
           {/* FIXME: Understand why fresh breaks rendering this component */}

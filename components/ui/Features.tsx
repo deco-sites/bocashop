@@ -33,9 +33,9 @@ function FeatureItem({ icon: id = "Truck", title, description }: Feature) {
       onClick={() => {
         open.value = true;
       }}
-      class="even:text-[#fabe08] odd:text-primary"
+      class="even:text-secondary odd:text-primary cursor-pointer"
     >
-      <div class="flex items-center gap-4 py-6 sm:py-0 sm:px-8 hover:translate-y-[-10px] transition-transform">
+      <div class="flex items-center gap-4 py-6 sm:p-[32px] hover:translate-y-[-10px] transition-transform">
         <Icon
           id={id}
           width={40}
@@ -43,10 +43,7 @@ function FeatureItem({ icon: id = "Truck", title, description }: Feature) {
           strokeWidth={2}
         />
         <div class="flex flex-col gap-2">
-          <Text variant="heading-3">{title}</Text>
-          <Text variant="caption">
-            {description}
-          </Text>
+          <Text variant="body-bold" class="text-[14px]">{title}</Text>
         </div>
       </div>
       <Modal
@@ -82,9 +79,9 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="min-h-[280px] p-6 sm:px-0 sm:py-10">
-      <div class="border-base-200">
-        <div class="flex flex-col justify-evenly divide-y divide-base-200 mx-6 sm:flex-row sm:divide-y-0 sm:divide-x sm:mx-0 sm:my-10  ">
+    <Container class="py-[30px]">
+      <div class="border-primary">
+        <div class="flex flex-col justify-evenly divide-y-2 divide-primary mx-6 sm:flex-row sm:divide-y-0 sm:divide-x sm:mx-0   ">
           {features.map((feature) => <FeatureItem {...feature} />)}
         </div>
       </div>

@@ -24,10 +24,10 @@ function ProductImageZoom({ images, width, height }: Props) {
         onClick={() => open.value = true}
       >
         <Icon
-          id="ArrowsPointingOut"
+          id="MagnifyingGlass"
           size={20}
           stroke="currentColor"
-          strokeWidth={2}
+          strokeWidth={0.01}
         />
       </Button>
       <Modal

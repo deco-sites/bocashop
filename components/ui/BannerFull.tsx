@@ -30,12 +30,6 @@ export interface Props {
   /**
    * @description Default is 2 for mobile and all for desktop
    */
-  itemsPerLine: {
-    /** @default 2 */
-    mobile?: 1 | 2;
-    /** @default 4 */
-    desktop?: 1 | 2 | 4 | 6 | 8;
-  };
   /**
    * @description Item's border radius in px
    */
@@ -45,22 +39,8 @@ export interface Props {
     /** @default none */
     desktop?: BorderRadius;
   };
-  bannerMain: Banner;
-  banners: Banner[];
+  banner: Banner;
 }
-
-const MOBILE_COLUMNS = {
-  1: "grid-cols-1",
-  2: "grid-cols-2",
-};
-
-const DESKTOP_COLUMNS = {
-  1: "sm:grid-cols-1",
-  2: "sm:grid-cols-2",
-  4: "sm:grid-cols-4",
-  6: "sm:grid-cols-6",
-  8: "sm:grid-cols-8",
-};
 
 const RADIUS_MOBILE = {
   "none": "rounded-none",
@@ -84,17 +64,15 @@ const RADIUS_DESKTOP = {
   "full": "sm:rounded-full",
 };
 
-export default function BannerGrid({
+export default function BannerFull({
   title,
-  itemsPerLine,
   borderRadius,
-  bannerMain,
-  banners = [],
+  banner,
 }: Props) {
-  const { href, srcMobile, srcDesktop, alt } = bannerMain;
+  const { href, srcMobile, srcDesktop, alt } = banner;
   return (
     <Container>
-      <section class="w-full px-4 md:px-0 mx-auto">
+      <section class="w-full px-4 md:px-0 mx-auto my-[20px]">
         {title &&
           (
             <div class="py-6 md:py-0 md:pb-[40px] flex items-center mt-6">
@@ -106,11 +84,13 @@ export default function BannerGrid({
             </div>
           )}
         <div
-          class={`grid gap-4 md:gap-6 grid-cols-2 grid-rows-2 justify-between content-between `}
+          class={`flex`}
         >
           <a
             href={href}
-            class={`overflow-hidden row-span-2 `}
+            class={`overflow-hidden ${
+              RADIUS_MOBILE[borderRadius.mobile ?? "none"]
+            } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
           >
             <Picture>
               <Source
@@ -122,8 +102,8 @@ export default function BannerGrid({
               <Source
                 media="(min-width: 768px)"
                 src={srcDesktop ? srcDesktop : srcMobile}
-                width={534}
-                height={611}
+                width={1137}
+                height={94}
               />
               <img
                 class="w-full"
@@ -135,38 +115,6 @@ export default function BannerGrid({
               />
             </Picture>
           </a>
-
-          {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
-            <a
-              href={href}
-              class={`overflow-hidden h-fit ${
-                RADIUS_MOBILE[borderRadius.mobile ?? "none"]
-              } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
-            >
-              <Picture>
-                <Source
-                  media="(max-width: 767px)"
-                  src={srcMobile}
-                  width={100}
-                  height={100}
-                />
-                <Source
-                  media="(min-width: 768px)"
-                  src={srcDesktop ? srcDesktop : srcMobile}
-                  width={534}
-                  height={271}
-                />
-                <img
-                  class="w-full"
-                  sizes="(max-width: 640px) 100vw, 30vw"
-                  src={srcMobile}
-                  alt={alt}
-                  decoding="async"
-                  loading="lazy"
-                />
-              </Picture>
-            </a>
-          ))}
         </div>
       </section>
     </Container>

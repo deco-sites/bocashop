@@ -26,7 +26,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" tone="primary-content">
+    <Text variant="caption" tone="base-content">
       {isIcon(item)
         ? (
           <div class="border-base-100 border border-solid py-1.5 px-2.5">
@@ -62,20 +62,17 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
+    <footer class="w-full bg-white flex flex-col divide-y divide-primary-content">
       <div>
+        <Newsletter />
         <Container class="w-full flex flex-col divide-y divide-primary-content">
-          <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
-
           <FooterContainer>
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="primary-content">
+                    <Text tone="primary" class="text-[12px]">
                       {section.label}
                     </Text>
 
@@ -99,7 +96,7 @@ function Footer({ sections = [] }: Props) {
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
               {sections.map((section) => (
                 <li>
-                  <Text variant="body" tone="primary-content">
+                  <Text variant="body" tone="primary">
                     <details>
                       <summary>
                         {section.label}

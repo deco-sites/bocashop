@@ -2757,6 +2757,140 @@
       "format": "image-uri",
       "title": "Image"
     },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Banner": {
+      "type": "object",
+      "properties": {
+        "srcMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Mobile"
+        },
+        "srcDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Desktop"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image alt text",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "description": "When you click you go to",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "srcMobile",
+        "alt",
+        "href"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "none"
+                },
+                {
+                  "type": "string",
+                  "const": "sm"
+                },
+                {
+                  "type": "string",
+                  "const": "md"
+                },
+                {
+                  "type": "string",
+                  "const": "lg"
+                },
+                {
+                  "type": "string",
+                  "const": "xl"
+                },
+                {
+                  "type": "string",
+                  "const": "2xl"
+                },
+                {
+                  "type": "string",
+                  "const": "3xl"
+                },
+                {
+                  "type": "string",
+                  "const": "full"
+                }
+              ],
+              "type": "string",
+              "title": "Mobile"
+            },
+            "desktop": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "none"
+                },
+                {
+                  "type": "string",
+                  "const": "sm"
+                },
+                {
+                  "type": "string",
+                  "const": "md"
+                },
+                {
+                  "type": "string",
+                  "const": "lg"
+                },
+                {
+                  "type": "string",
+                  "const": "xl"
+                },
+                {
+                  "type": "string",
+                  "const": "2xl"
+                },
+                {
+                  "type": "string",
+                  "const": "3xl"
+                },
+                {
+                  "type": "string",
+                  "const": "full"
+                }
+              ],
+              "type": "string",
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Border Radius",
+          "description": "Item's border radius in px"
+        },
+        "banner": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Banner",
+          "title": "Banner"
+        }
+      },
+      "required": [
+        "borderRadius",
+        "banner"
+      ],
+      "title": "deco-sites/bocashop/components/ui/BannerFull.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner": {
       "type": "object",
       "properties": {
@@ -2935,6 +3069,10 @@
           "title": "Border Radius",
           "description": "Item's border radius in px"
         },
+        "bannerMain": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner",
+          "title": "Banner Main"
+        },
         "banners": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner[]",
           "title": "Banners"
@@ -2943,6 +3081,7 @@
       "required": [
         "itemsPerLine",
         "borderRadius",
+        "bannerMain",
         "banners"
       ],
       "title": "deco-sites/bocashop/components/ui/BannerGrid.tsx@Props"
@@ -3050,14 +3189,6 @@
               "type": "string",
               "title": "Href"
             },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
             "label": {
               "type": "string",
               "title": "Label"
@@ -3065,8 +3196,6 @@
           },
           "required": [
             "href",
-            "title",
-            "subTitle",
             "label"
           ],
           "title": "Action"
@@ -3075,7 +3204,8 @@
       "required": [
         "desktop",
         "mobile",
-        "alt"
+        "alt",
+        "action"
       ],
       "title": "Banner"
     },
@@ -3717,14 +3847,6 @@
     "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Highlight": {
       "type": "object",
       "properties": {
-        "src": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src"
-        },
-        "alt": {
-          "type": "string",
-          "title": "Alt"
-        },
         "href": {
           "type": "string",
           "title": "Href"
@@ -3735,8 +3857,6 @@
         }
       },
       "required": [
-        "src",
-        "alt",
         "href",
         "label"
       ],
@@ -3755,15 +3875,9 @@
         "highlights": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Highlight[]",
           "title": "Highlights"
-        },
-        "title": {
-          "type": "string",
-          "title": "Title"
         }
       },
-      "required": [
-        "title"
-      ],
+      "required": [],
       "title": "deco-sites/bocashop/components/ui/Highlights.tsx@Props"
     },
     "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Link": {
@@ -3895,11 +4009,16 @@
       ],
       "title": "deco-sites/bocashop/components/product/ProductDetails.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
+      "type": "string",
+      "format": "html",
+      "title": "HTML"
+    },
     "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdFNoZWxmLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "title": {
-          "type": "string",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Title"
         },
         "products": {
@@ -4917,6 +5036,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1NrdUFkZFRvQ2FydC50c3g=": {
+      "title": "./islands/SkuAddToCart.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/SkuAddToCart.tsx"
+          ],
+          "default": "./islands/SkuAddToCart.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1NsaWRlckpTLnRzeA==": {
       "title": "./islands/SliderJS.tsx",
       "type": "object",
@@ -5130,6 +5270,27 @@
             "$live/sections/UseSlot.tsx"
           ],
           "default": "$live/sections/UseSlot.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJGdWxsLnRzeA==": {
+      "title": "deco-sites/bocashop/sections/BannerFull.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bocashop/sections/BannerFull.tsx"
+          ],
+          "default": "deco-sites/bocashop/sections/BannerFull.tsx"
         }
       }
     },
@@ -5970,6 +6131,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL1NoaXBwaW5nU2ltdWxhdGlvbi50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1NrdUFkZFRvQ2FydC50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="
         },
         {
@@ -6025,6 +6189,9 @@
         },
         {
           "$ref": "#/definitions/JGxpdmUvc2VjdGlvbnMvVXNlU2xvdC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJGdWxsLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJHcmlkLnRzeA=="

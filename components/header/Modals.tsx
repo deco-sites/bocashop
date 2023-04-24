@@ -56,7 +56,6 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
-        title="Minha sacola"
         mode="sidebar-right"
         loading="lazy"
         open={displayCart.value}

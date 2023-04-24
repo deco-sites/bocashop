@@ -17,7 +17,7 @@ export default {
     extend: {
       fontSize: {
         "heading-1": ["56px", "67.2px"],
-        "heading-2": ["24px", "28.8px"],
+        "heading-2": ["32px", "28.8px"],
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
@@ -27,7 +27,7 @@ export default {
       },
       fontWeight: {
         "heading-1": "500",
-        "heading-2": "500",
+        "heading-2": "700",
         "heading-3": "500",
         "menu": "400",
         "button": "700",

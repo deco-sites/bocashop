@@ -9,15 +9,16 @@ import * as $$$$1 from "./routes/api/[...catchall].tsx";
 import * as $$$$$0 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$1 from "./islands/WishlistButton.tsx";
 import * as $$$$$2 from "./islands/AddToCartButton.tsx";
-import * as $$$$$3 from "./islands/HeaderButton.tsx";
-import * as $$$$$4 from "./islands/SliderJS.tsx";
-import * as $$$$$5 from "./islands/Features.tsx";
-import * as $$$$$6 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$7 from "./islands/HeaderModals.tsx";
-import * as $$$$$8 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$9 from "./islands/SearchControls.tsx";
-import * as $$$$$10 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$11 from "./islands/SendEventButton.tsx";
+import * as $$$$$3 from "./islands/SkuAddToCart.tsx";
+import * as $$$$$4 from "./islands/HeaderButton.tsx";
+import * as $$$$$5 from "./islands/SliderJS.tsx";
+import * as $$$$$6 from "./islands/Features.tsx";
+import * as $$$$$7 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$8 from "./islands/HeaderModals.tsx";
+import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$10 from "./islands/SearchControls.tsx";
+import * as $$$$$11 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$12 from "./islands/SendEventButton.tsx";
 import * as $$$$$$$$0 from "./sections/Carousel.tsx";
 import * as $$$$$$$$1 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$2 from "./sections/BannerGrid.tsx";
@@ -32,7 +33,8 @@ import * as $$$$$$$$10 from "./sections/BannerPLP.tsx";
 import * as $$$$$$$$11 from "./sections/Header.tsx";
 import * as $$$$$$$$12 from "./sections/ProductDetails.tsx";
 import * as $$$$$$$$13 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$14 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$14 from "./sections/BannerFull.tsx";
+import * as $$$$$$$$15 from "./sections/WhatsApp.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -107,22 +109,24 @@ const manifest = {
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$2,
-    "./islands/Features.tsx": $$$$$5,
-    "./islands/HeaderButton.tsx": $$$$$3,
-    "./islands/HeaderModals.tsx": $$$$$7,
-    "./islands/HeaderSearchMenu.tsx": $$$$$6,
-    "./islands/ProductImageZoom.tsx": $$$$$8,
-    "./islands/SearchControls.tsx": $$$$$9,
-    "./islands/SendEventButton.tsx": $$$$$11,
+    "./islands/Features.tsx": $$$$$6,
+    "./islands/HeaderButton.tsx": $$$$$4,
+    "./islands/HeaderModals.tsx": $$$$$8,
+    "./islands/HeaderSearchMenu.tsx": $$$$$7,
+    "./islands/ProductImageZoom.tsx": $$$$$9,
+    "./islands/SearchControls.tsx": $$$$$10,
+    "./islands/SendEventButton.tsx": $$$$$12,
     "./islands/ShippingSimulation.tsx": $$$$$0,
-    "./islands/SliderJS.tsx": $$$$$4,
-    "./islands/ViewSendEvent.tsx": $$$$$10,
+    "./islands/SkuAddToCart.tsx": $$$$$3,
+    "./islands/SliderJS.tsx": $$$$$5,
+    "./islands/ViewSendEvent.tsx": $$$$$11,
     "./islands/WishlistButton.tsx": $$$$$1,
   },
   "sections": {
     "$live/sections/PageInclude.tsx": i2$$$9,
     "$live/sections/Slot.tsx": i1$$$1,
     "$live/sections/UseSlot.tsx": i1$$$2,
+    "deco-sites/bocashop/sections/BannerFull.tsx": $$$$$$$$14,
     "deco-sites/bocashop/sections/BannerGrid.tsx": $$$$$$$$2,
     "deco-sites/bocashop/sections/BannerPLP.tsx": $$$$$$$$10,
     "deco-sites/bocashop/sections/Carousel.tsx": $$$$$$$$0,
@@ -136,7 +140,7 @@ const manifest = {
     "deco-sites/bocashop/sections/ProductDetails.tsx": $$$$$$$$12,
     "deco-sites/bocashop/sections/ProductShelf.tsx": $$$$$$$$13,
     "deco-sites/bocashop/sections/SearchResult.tsx": $$$$$$$$9,
-    "deco-sites/bocashop/sections/WhatsApp.tsx": $$$$$$$$14,
+    "deco-sites/bocashop/sections/WhatsApp.tsx": $$$$$$$$15,
     "deco-sites/bocashop/sections/WishlistGallery.tsx": $$$$$$$$7,
     "deco-sites/std/sections/Analytics.tsx": i2$$$4,
     "deco-sites/std/sections/configOCC.global.tsx": i2$$$3,

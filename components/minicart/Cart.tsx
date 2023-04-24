@@ -37,15 +37,9 @@ function Cart() {
   if (isCartEmpty) {
     return (
       <div class="flex flex-col justify-center items-center h-full gap-6">
-        <Text variant="heading-2">Sua sacola está vazia</Text>
-        <Button
-          variant="outline"
-          onClick={() => {
-            displayCart.value = false;
-          }}
-        >
-          Escolher produtos
-        </Button>
+        <Text variant="caption">
+          No hay productos en el carrito de compras
+        </Text>
       </div>
     );
   }
@@ -55,7 +49,7 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6"
+        class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6 px-[30px]"
       >
         {cart.value.items.map((_, index) => (
           <li>

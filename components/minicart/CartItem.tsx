@@ -36,52 +36,49 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row justify-between  gap-4">
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
-        class="object-cover object-center"
+        width={80}
+        height={80}
+        class="object-cover object-center border-[1px]"
       />
-      <div class="flex-grow">
+      <div class="flex-grow flex flex-col">
         <Text variant="body">
           {name}
         </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="base-300" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
+        <div class="flex items-end flex-1 gap-2">
+          <div class="max-w-min">
+            <QuantitySelector
+              disabled={loading.value || isGift}
+              quantity={quantity}
+              onChange={(quantity) => {
+                updateItems({ orderItems: [{ index, quantity }] });
+                const quantityDiff = quantity - item.quantity;
+
+                if (!cart.value) return;
+
+                window.DECO_SITES_STD.sendAnalyticsEvent({
+                  name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+                  params: {
+                    items: mapItemsToAnalyticsItems({
+                      items: [{
+                        ...item,
+                        quantity: Math.abs(quantityDiff),
+                      }],
+                      marketingData: cart.value.marketingData,
+                    }),
+                  },
+                });
+              }}
+            />
+          </div>
           <Text tone="secondary" variant="caption">
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currencyCode!, locale)}
           </Text>
-        </div>
-        <div class="mt-6 max-w-min">
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) => {
-              updateItems({ orderItems: [{ index, quantity }] });
-              const quantityDiff = quantity - item.quantity;
-
-              if (!cart.value) return;
-
-              window.DECO_SITES_STD.sendAnalyticsEvent({
-                name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
-                params: {
-                  items: mapItemsToAnalyticsItems({
-                    items: [{
-                      ...item,
-                      quantity: Math.abs(quantityDiff),
-                    }],
-                    marketingData: cart.value.marketingData,
-                  }),
-                },
-              });
-            }}
-          />
         </div>
       </div>
       <Button

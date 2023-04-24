@@ -11,10 +11,10 @@ export interface INavItem {
 }
 
 function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children, image } = item;
+  const { href, label, children } = item;
 
   return (
-    <li class="group flex items-center">
+    <li class="group flex items-center justify-center relative min-w-[155px] mx-[15px]">
       <a
         href={href}
         class="px-4 py-3 flex text-primary-content items-center gap-[10px]"
@@ -34,22 +34,12 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ top: "0px", left: "0px", marginTop: headerHeight }}
+            class="absolute hidden translate-x-[-50%] hover:flex group-hover:flex bg-[#f2f2f2] z-50 items-start gap-6 border-t border-b-2 border-base-200 after:h-3 after:w-3 after:absolute after:rotate-45 after:transform after:bg-[#f2f2f2] after:top-[-5px] after:left-1/2 p-6"
+            style={{ top: "50px", left: "50%" }}
           >
-            {image?.src && (
-              <Image
-                class="p-6"
-                src={image.src}
-                alt={image.alt}
-                width={300}
-                height={332}
-                loading="lazy"
-              />
-            )}
-            <ul class="flex items-start justify-center gap-6">
+            <ul class="flex flex-col items-start justify-center">
               {children.map((node) => (
-                <li class="p-6">
+                <li class="">
                   <a class="hover:underline" href={node.href}>
                     <Text variant="menu">{node.label}</Text>
                   </a>

@@ -3,6 +3,7 @@ import type { JSX } from "preact";
 
 type SliderProps = JSX.IntrinsicElements["ul"] & {
   snap?: string;
+  slidePerView?: number | { desktop: number; tablet: number; phone: number };
 };
 
 export function Slider({
@@ -20,7 +21,7 @@ export function Slider({
       {Children.map(children, (child, index) => (
         <li
           data-slider-item={index}
-          class={snap}
+          class={`${snap}`}
         >
           {child}
         </li>
@@ -34,7 +35,7 @@ type SliderDotsProps = JSX.IntrinsicElements["ol"];
 export function SliderDots({ children, class: _class }: SliderDotsProps) {
   return (
     <ol
-      class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
+      class={`flex grid-flow-col items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
     >
       {Children.map(children, (child, index) => (
         <li class="snap-center">

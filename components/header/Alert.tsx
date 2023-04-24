@@ -17,7 +17,10 @@ function Alert({ alerts = [], interval = 5 }: Props) {
 
   return (
     <div id={id}>
-      <Slider class="bg-[#003169] gap-6 scrollbar-none">
+      <Slider
+        class="bg-[#003169] gap-6 scrollbar-none"
+        snap="w-full min-w-full"
+      >
         {alerts.map((alert) => (
           <Text
             class="flex m-auto relative w-fit justify-center items-center h-[38px] font-bold 

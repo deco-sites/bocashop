@@ -63,8 +63,6 @@ function Navbar({ items, searchbar, logo }: {
           <Searchbar {...searchbar} variant="mobile" />
 
           <div class="flex-none w-44 flex items-center justify-end gap-2">
-            <HeaderButton variant="search" />
-
             <Button
               as="a"
               variant="icon"
@@ -93,7 +91,7 @@ function Navbar({ items, searchbar, logo }: {
           </div>
         </div>
         <div class="">
-          <div class="flex-auto flex justify-center bg-primary-focus">
+          <div class="flex-auto flex justify-center bg-primary-focus h-[50px]">
             {items.map((item) => <NavItem item={item} />)}
           </div>
         </div>
