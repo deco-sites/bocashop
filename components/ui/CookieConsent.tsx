@@ -60,6 +60,7 @@ function CookieConsent() {
 
           <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <Button
+              aria-label="Close"
               data-button-cc-close
               variant="icon"
               class="absolute lg:static top-0 right-0"
