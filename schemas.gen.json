@@ -5100,6 +5100,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1RhbGxlVGFibGUudHN4": {
+      "title": "./islands/TalleTable.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/TalleTable.tsx"
+          ],
+          "default": "./islands/TalleTable.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1ZpZXdTZW5kRXZlbnQudHN4": {
       "title": "./islands/ViewSendEvent.tsx",
       "type": "object",
@@ -6165,6 +6181,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1RhbGxlVGFibGUudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1ZpZXdTZW5kRXZlbnQudHN4"

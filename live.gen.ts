@@ -11,15 +11,16 @@ import * as $$$$$1 from "./islands/WishlistButton.tsx";
 import * as $$$$$2 from "./islands/AddToCartButton.tsx";
 import * as $$$$$3 from "./islands/SkuAddToCart.tsx";
 import * as $$$$$4 from "./islands/HeaderButton.tsx";
-import * as $$$$$5 from "./islands/SliderJS.tsx";
-import * as $$$$$6 from "./islands/Features.tsx";
-import * as $$$$$7 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$8 from "./islands/HeaderModals.tsx";
-import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$10 from "./islands/SearchControls.tsx";
-import * as $$$$$11 from "./islands/ScrollTrackJS.tsx";
-import * as $$$$$12 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$13 from "./islands/SendEventButton.tsx";
+import * as $$$$$5 from "./islands/TalleTable.tsx";
+import * as $$$$$6 from "./islands/SliderJS.tsx";
+import * as $$$$$7 from "./islands/Features.tsx";
+import * as $$$$$8 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$9 from "./islands/HeaderModals.tsx";
+import * as $$$$$10 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$11 from "./islands/SearchControls.tsx";
+import * as $$$$$12 from "./islands/ScrollTrackJS.tsx";
+import * as $$$$$13 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$14 from "./islands/SendEventButton.tsx";
 import * as $$$$$$$$0 from "./sections/Carousel.tsx";
 import * as $$$$$$$$1 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$2 from "./sections/BannerGrid.tsx";
@@ -110,18 +111,19 @@ const manifest = {
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$2,
-    "./islands/Features.tsx": $$$$$6,
+    "./islands/Features.tsx": $$$$$7,
     "./islands/HeaderButton.tsx": $$$$$4,
-    "./islands/HeaderModals.tsx": $$$$$8,
-    "./islands/HeaderSearchMenu.tsx": $$$$$7,
-    "./islands/ProductImageZoom.tsx": $$$$$9,
-    "./islands/ScrollTrackJS.tsx": $$$$$11,
-    "./islands/SearchControls.tsx": $$$$$10,
-    "./islands/SendEventButton.tsx": $$$$$13,
+    "./islands/HeaderModals.tsx": $$$$$9,
+    "./islands/HeaderSearchMenu.tsx": $$$$$8,
+    "./islands/ProductImageZoom.tsx": $$$$$10,
+    "./islands/ScrollTrackJS.tsx": $$$$$12,
+    "./islands/SearchControls.tsx": $$$$$11,
+    "./islands/SendEventButton.tsx": $$$$$14,
     "./islands/ShippingSimulation.tsx": $$$$$0,
     "./islands/SkuAddToCart.tsx": $$$$$3,
-    "./islands/SliderJS.tsx": $$$$$5,
-    "./islands/ViewSendEvent.tsx": $$$$$12,
+    "./islands/SliderJS.tsx": $$$$$6,
+    "./islands/TalleTable.tsx": $$$$$5,
+    "./islands/ViewSendEvent.tsx": $$$$$13,
     "./islands/WishlistButton.tsx": $$$$$1,
   },
   "sections": {

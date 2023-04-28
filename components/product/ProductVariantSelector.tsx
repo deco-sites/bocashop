@@ -2,6 +2,8 @@ import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
 import { useVariantPossibilities } from "deco-sites/fashion/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import Modal from "../ui/Modal.tsx";
+import TalleTable from "deco-sites/bocashop/islands/TalleTable.tsx";
 
 interface Props {
   product: Product;
@@ -19,9 +21,7 @@ function VariantSelector({ product }: Props) {
       <li class="flex flex-col gap-2">
         <div class="flex justify-between">
           <Text variant="body-bold" class="uppercase">Talle</Text>
-          <div>
-            Conocé tu talle
-          </div>
+          <TalleTable product={product} />
         </div>
         <ul class="flex flex-row gap-2 border-t lg:border-y-0 py-[15px]">
           {options.map(
