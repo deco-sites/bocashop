@@ -38,7 +38,7 @@ export const useVariantPossibilities = ({ isVariantOf }: Product) => {
 
       return acc;
     },
-    {} as Record<string, Record<string, Record<string, any>>>,
+    {} as Record<string, Record<string, Record<string, unknown>>>,
   );
 
   return possibilities;

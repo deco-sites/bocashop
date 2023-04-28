@@ -10,6 +10,7 @@ import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import Breadcrumb from "../ui/Breadcrumb.tsx";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -40,6 +41,9 @@ function Result({
   return (
     <>
       <Container class="px-4 sm:py-10">
+        <div class="flex flex-row items-center sm:p-0 mb-2">
+          <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+        </div>
         <SearchControls
           sortOptions={sortOptions}
           filters={filters}
@@ -48,11 +52,6 @@ function Result({
         />
 
         <div class="flex flex-row">
-          {variant === "aside" && filters.length > 0 && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
-              <Filters filters={filters} />
-            </aside>
-          )}
           <div class="flex-grow">
             <ProductGallery products={products} />
           </div>

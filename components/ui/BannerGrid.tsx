@@ -106,18 +106,18 @@ export default function BannerGrid({
             </div>
           )}
         <div
-          class={`grid gap-4 md:gap-6 grid-cols-2 grid-rows-2 justify-between content-between `}
+          class={`grid gap-2 lg:gap-4 md:gap-6 grid-cols-2 grid-rows-2 justify-between content-between `}
         >
           <a
             href={href}
-            class={`overflow-hidden row-span-2 `}
+            class={`overflow-hidden lg:row-span-2 col-span-2 lg:col-span-1`}
           >
             <Picture>
               <Source
                 media="(max-width: 767px)"
                 src={srcMobile}
-                width={100}
-                height={100}
+                width={365}
+                height={184}
               />
               <Source
                 media="(min-width: 768px)"

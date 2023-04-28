@@ -14,32 +14,32 @@ import SkuAddToCart from "../../islands/SkuAddToCart.tsx";
  * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
  * remove JS from the frontend
  */
-function Sizes(product: Product) {
-  const possibilities = useVariantPossibilities(product);
+// function Sizes(product: Product) {
+//   const possibilities = useVariantPossibilities(product);
 
-  const options = Object.entries(
-    possibilities["TAMANHO"] ?? possibilities["Tamanho"] ??
-      possibilities["Talle"] ?? {},
-  );
+//   const options = Object.entries(
+//     possibilities["TAMANHO"] ?? possibilities["Tamanho"] ??
+//       possibilities["Talle"] ?? {},
+//   );
 
-  return (
-    <ul class="flex justify-center items-center gap-2">
-      {options.map(([value, { url, available, id }]) => {
-        // const url = urls.find((url) => url === product.url) || urls[0];
+//   return (
+//     <ul class="flex justify-center items-center gap-2">
+//       {options.map(([value, { url, available, id }]) => {
+//         // const url = urls.find((url) => url === product.url) || urls[0];
 
-        return (
-          <a href={url}>
-            <Avatar
-              variant="abbreviation"
-              content={value}
-              disabled={!available}
-            />
-          </a>
-        );
-      })}
-    </ul>
-  );
-}
+//         return (
+//           <a href={url}>
+//             <Avatar
+//               variant="abbreviation"
+//               content={value}
+//               disabled={!available}
+//             />
+//           </a>
+//         );
+//       })}
+//     </ul>
+//   );
+// }
 
 interface Props {
   product: Product;
@@ -57,23 +57,19 @@ function ProductCard({ product, preload, itemListName }: Props) {
     image: images,
     offers,
     isVariantOf,
-    additionalProperty,
   } = product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
-  const { name } = isVariantOf ?? {};
+  const { name, additionalProperty: skuProperties } = isVariantOf ?? {};
 
-  const genre = additionalProperty?.find((property) =>
-    property.name == "Género"
-  );
-
-  console.log(additionalProperty);
+  const genre = skuProperties?.find((property) => property.name == "Género");
+  console.log(skuProperties);
 
   return (
     <div
       data-deco="view-product"
       id={`product-card-${productID}`}
-      class="w-full group"
+      class="w-full group h-full flex flex-col"
     >
       <a href={url} aria-label="product link">
         <div class="relative w-full overflow-hidden border-[1px] pb-[32px]">
@@ -97,21 +93,21 @@ function ProductCard({ product, preload, itemListName }: Props) {
           />
           {seller && (
             <div class="absolute bottom-[-40px] flex flex-col items-center gap-2 w-full p-2 bg-opacity-100 group-hover:bottom-0 transition-all bg-white border-default border-t-[1px]">
-              <Text>AÑADIR TALLE</Text>
+              <Text variant="body-bold" tone="primary">AÑADIR TALLE</Text>
               {/* <Sizes {...product} /> */}
-              <SkuAddToCart {...product} />
+              <SkuAddToCart product={product} />
             </div>
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
+        <div class="flex flex-col gap-3 py-2 flex-1 justify-end">
           {genre && genre.value && (
             <div>
-              <Text>{genre.value}</Text>
+              <Text variant="caption" tone="neutral">{genre.value}</Text>
             </div>
           )}
           <Text
-            class="overflow-hidden text-ellipsis line-clamp-2"
+            class="overflow-hidden text-ellipsis line-clamp-2 h-[32px]"
             variant="caption"
           >
             {name}

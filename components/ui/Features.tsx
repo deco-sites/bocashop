@@ -35,7 +35,7 @@ function FeatureItem({ icon: id = "Truck", title, description }: Feature) {
       }}
       class="even:text-secondary odd:text-primary cursor-pointer"
     >
-      <div class="flex items-center gap-4 py-6 sm:p-[32px] hover:translate-y-[-10px] transition-transform">
+      <div class="flex flex-col lg:flex-row items-center gap-4 py-6 sm:p-[32px] hover:translate-y-[-10px] transition-transform">
         <Icon
           id={id}
           width={40}
@@ -81,7 +81,7 @@ function FeatureHighlights(
   return (
     <Container class="py-[30px]">
       <div class="border-primary">
-        <div class="flex flex-col justify-evenly divide-y-2 divide-primary mx-6 sm:flex-row sm:divide-y-0 sm:divide-x sm:mx-0   ">
+        <div class="flex flex-col justify-evenly divide-primary mx-6 lg:flex-row lg:divide-x lg:mx-0   ">
           {features.map((feature) => <FeatureItem {...feature} />)}
         </div>
       </div>

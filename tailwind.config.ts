@@ -19,16 +19,16 @@ export default {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["32px", "28.8px"],
         "heading-3": ["20px", "24px"],
-        "menu": ["16px", "20px"],
+        "menu": ["13px", "16px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
-        "heading-1": "500",
+        "heading-1": "700",
         "heading-2": "700",
-        "heading-3": "500",
+        "heading-3": "700",
         "menu": "400",
         "button": "700",
         "body": "400",
@@ -39,6 +39,7 @@ export default {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
+        "slide-top": "slide-top-frame 0.4s ease normal",
         "progress": "progress-frame ease normal",
       },
       keyframes: {
@@ -52,6 +53,10 @@ export default {
         },
         "slide-bottom-frame": {
           from: { transform: "translateY(100%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "slide-top-frame": {
+          from: { transform: "translateY(-100%)" },
           to: { transform: "translateY(0)" },
         },
         "progress-frame": {

@@ -16,13 +16,23 @@ const Searchbar = lazy(() =>
   import("deco-sites/fashion/components/search/Searchbar.tsx")
 );
 
+const AddToCartPopup = lazy(() =>
+  import("deco-sites/bocashop/components/header/AddToCartPopup.tsx")
+);
+
 interface Props {
   menu: MenuProps;
   searchbar?: SearchbarProps;
 }
 
 function Modals({ menu, searchbar }: Props) {
-  const { displayCart, displayMenu, displaySearchbar } = useUI();
+  const {
+    displayCart,
+    displayMenu,
+    displaySearchbar,
+    displayAddToCartPopup,
+    displayDesktopCart,
+  } = useUI();
 
   return (
     <>
@@ -56,8 +66,39 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
+        mode="center"
+        loading="lazy"
+        open={displayAddToCartPopup.value.open}
+        onClose={() => {
+          displayAddToCartPopup.value = {
+            ...displayAddToCartPopup.value,
+            open: false,
+          };
+        }}
+      >
+        <Suspense fallback={<Loading />}>
+          <AddToCartPopup />
+        </Suspense>
+      </Modal>
+
+      <Modal
+        mode="in-place"
+        noCloseButton={true}
+        loading="lazy"
+        open={displayDesktopCart.value}
+        onClose={() => {
+          displayDesktopCart.value = false;
+        }}
+      >
+        <Suspense fallback={<Loading />}>
+          <Cart />
+        </Suspense>
+      </Modal>
+
+      <Modal
         mode="sidebar-right"
         loading="lazy"
+        title="mi compra"
         open={displayCart.value}
         onClose={() => {
           displayCart.value = false;

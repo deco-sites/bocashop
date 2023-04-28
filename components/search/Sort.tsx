@@ -31,7 +31,7 @@ function Sort({ sortOptions }: Props) {
       id="sort"
       name="sort"
       onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-base-content cursor-pointer outline-none"
+      class="lg:w-min h-[36px] w-full border-base-300 lg:border-[1px] px-1 m-2 text-button font-button text-base-content cursor-pointer outline-none"
     >
       {sortOptions.map(({ value, label }) => (
         <option key={value} value={value} selected={value === sort}>

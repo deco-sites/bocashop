@@ -40,19 +40,27 @@ function NavItem({ item }: { item: INavItem }) {
             <ul class="flex flex-col items-start justify-center">
               {children.map((node) => (
                 <li class="">
-                  <a class="hover:underline" href={node.href}>
-                    <Text variant="menu">{node.label}</Text>
+                  <a href={node.href}>
+                    <Text
+                      variant="menu"
+                      tone="base-300"
+                      class="whitespace-nowrap hover:text-secondary"
+                    >
+                      {node.label}
+                    </Text>
                   </a>
 
-                  <ul class="flex flex-col gap-1 mt-4">
-                    {node.children?.map((leaf) => (
-                      <li>
-                        <a class="hover:underline" href={leaf.href}>
-                          <Text variant="caption">{leaf.label}</Text>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                  {!!node?.children?.length && (
+                    <ul class="flex flex-col gap-1 mt-4">
+                      {node.children?.map((leaf) => (
+                        <li>
+                          <a class="hover:underline" href={leaf.href}>
+                            <Text variant="caption">{leaf.label}</Text>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>

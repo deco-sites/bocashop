@@ -22,6 +22,7 @@ function SearchButton() {
       onClick={() => {
         displaySearchbar.value = !displaySearchbar.peek();
       }}
+      class="text-white"
     >
       <Icon id="MagnifyingGlass" width={20} height={20} strokeWidth={0.1} />
     </Button>
@@ -38,6 +39,7 @@ function MenuButton() {
       onClick={() => {
         displayMenu.value = true;
       }}
+      class="text-white"
     >
       <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
     </Button>
@@ -79,7 +81,7 @@ function CartButton() {
     >
       <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-secondary text-secondary-content w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-white text-primary font-bold w-4 h-4 flex items-center justify-center">
           {totalItems}
         </span>
       )}
@@ -87,9 +89,58 @@ function CartButton() {
   );
 }
 
-function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
+function CartDesktopButton() {
+  const { displayDesktopCart } = useUI();
+  const { loading, cart, mapItemsToAnalyticsItems } = useCart();
+  const totalItems = cart.value?.items.length || null;
+  const dataDeco = displayDesktopCart.value ? {} : { "data-deco": "open-cart" };
+  const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  const total = cart.value?.totalizers.find((item) => item.id === "Items");
+  const discounts = cart.value?.totalizers.find((item) =>
+    item.id === "Discounts"
+  );
+
+  return (
+    <Button
+      {...dataDeco}
+      variant="icon"
+      class="relative text-white"
+      aria-label="open cart"
+      disabled={loading.value}
+      onClick={() => {
+        displayDesktopCart.value = true;
+        window.DECO_SITES_STD.sendAnalyticsEvent({
+          name: "view_cart",
+          params: {
+            currency: cart.value ? currencyCode! : "",
+            value: total?.value
+              ? (total?.value - (discounts?.value ?? 0)) / 100
+              : 0,
+
+            items: cart.value ? mapItemsToAnalyticsItems(cart.value) : [],
+          },
+        });
+      }}
+    >
+      <Icon id="ShoppingCart" width={26} height={26} strokeWidth={2} />
+      {totalItems && (
+        <span class="absolute text-[9px] font-bold right-0 top-0 rounded-full bg-primary-focus text-primary-content w-4 h-4 flex items-center justify-center">
+          {totalItems}
+        </span>
+      )}
+    </Button>
+  );
+}
+
+function HeaderButton(
+  { variant }: { variant: "cart" | "search" | "menu" | "cartDesktop" },
+) {
   if (variant === "cart") {
     return <CartButton />;
+  }
+
+  if (variant === "cartDesktop") {
+    return <CartDesktopButton />;
   }
 
   if (variant === "search") {

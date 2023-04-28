@@ -44,15 +44,15 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative min-h-[350px] max-w-[100vw] w-full overflow-y-hidden">
+    <div class="relative min-h-[254px] max-w-[100vw] w-full overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
             media="(max-width: 767px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}
-            width={360}
-            height={600}
+            width={375}
+            height={254}
           />
           <Source
             media="(min-width: 768px)"
@@ -160,7 +160,10 @@ function BannerCarousel({ images, preload, interval }: Props) {
       class="flex flex-col bg-[#f3f3f3]"
     >
       <div class="relative">
-        <Slider class="scrollbar-none gap-6" snap="min-w-full">
+        <Slider
+          class="scrollbar-none gap-6"
+          snap="min-w-full snap-center"
+        >
           {images?.map((image, index) => (
             <BannerItem image={image} lcp={index === 0 && preload} />
           ))}

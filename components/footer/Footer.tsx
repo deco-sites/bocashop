@@ -68,11 +68,15 @@ function Footer({ sections = [] }: Props) {
         <Container class="w-full flex flex-col divide-y divide-primary-content">
           <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row justify-center gap-20">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text tone="primary" class="text-[12px]">
+                    <Text
+                      variant="body-bold"
+                      tone="primary"
+                      class="text-[12px]"
+                    >
                       {section.label}
                     </Text>
 
@@ -97,9 +101,16 @@ function Footer({ sections = [] }: Props) {
               {sections.map((section) => (
                 <li>
                   <Text variant="body" tone="primary">
-                    <details>
-                      <summary>
+                    <details class="group">
+                      <summary class="list-none flex justify-between font-bold">
                         {section.label}
+                        <Icon
+                          id="ChevronDown"
+                          width={20}
+                          height={20}
+                          strokeWidth={2}
+                          class="group-open:rotate-180 transition-all"
+                        />
                       </summary>
 
                       <ul

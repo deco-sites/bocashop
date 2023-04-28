@@ -36,49 +36,72 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between  gap-4">
+    <div class="flex flex-row justify-between lg:items-center gap-4 lg:max-w-[334px] py-[15px]">
       <Image
         src={imageUrl}
         alt={skuName}
         width={80}
         height={80}
-        class="object-cover object-center border-[1px]"
+        class="object-cover object-center lg:border max-h-[80px]"
       />
       <div class="flex-grow flex flex-col">
-        <Text variant="body">
+        <Text variant="caption" class="mb-[1rem] uppercase lg:normal-case">
           {name}
         </Text>
-        <div class="flex items-end flex-1 gap-2">
-          <div class="max-w-min">
-            <QuantitySelector
-              disabled={loading.value || isGift}
-              quantity={quantity}
-              onChange={(quantity) => {
-                updateItems({ orderItems: [{ index, quantity }] });
-                const quantityDiff = quantity - item.quantity;
+        <div class="w-full flex justify-between">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between flex-1 gap-2">
+            <div class="max-w-min">
+              <QuantitySelector
+                disabled={loading.value || isGift}
+                quantity={quantity}
+                onChange={(quantity) => {
+                  updateItems({ orderItems: [{ index, quantity }] });
+                  const quantityDiff = quantity - item.quantity;
 
-                if (!cart.value) return;
+                  if (!cart.value) return;
 
-                window.DECO_SITES_STD.sendAnalyticsEvent({
-                  name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
-                  params: {
-                    items: mapItemsToAnalyticsItems({
-                      items: [{
-                        ...item,
-                        quantity: Math.abs(quantityDiff),
-                      }],
-                      marketingData: cart.value.marketingData,
-                    }),
-                  },
-                });
-              }}
-            />
+                  window.DECO_SITES_STD.sendAnalyticsEvent({
+                    name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+                    params: {
+                      items: mapItemsToAnalyticsItems({
+                        items: [{
+                          ...item,
+                          quantity: Math.abs(quantityDiff),
+                        }],
+                        marketingData: cart.value.marketingData,
+                      }),
+                    },
+                  });
+                }}
+              />
+            </div>
+            <Text tone="primary" variant="caption">
+              {isGift
+                ? "Grátis"
+                : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+            </Text>
           </div>
-          <Text tone="secondary" variant="caption">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </Text>
+          <Button
+            onClick={() => {
+              updateItems({ orderItems: [{ index, quantity: 0 }] });
+              if (!cart.value) return;
+              window.DECO_SITES_STD.sendAnalyticsEvent({
+                name: "remove_from_cart",
+                params: {
+                  items: mapItemsToAnalyticsItems({
+                    items: [item],
+                    marketingData: cart.value.marketingData,
+                  }),
+                },
+              });
+            }}
+            disabled={loading.value || isGift}
+            loading={loading.value}
+            variant="icon"
+            class="text-red-500 lg:hidden block"
+          >
+            <Icon id="Trash" width={20} height={20} />
+          </Button>
         </div>
       </div>
       <Button
@@ -98,6 +121,7 @@ function CartItem({ index }: Props) {
         disabled={loading.value || isGift}
         loading={loading.value}
         variant="icon"
+        class="text-red-500 hidden lg:block"
       >
         <Icon id="Trash" width={20} height={20} />
       </Button>

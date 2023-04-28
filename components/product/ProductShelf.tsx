@@ -36,17 +36,23 @@ function ProductShelf({
     >
       <div
         dangerouslySetInnerHTML={{ __html: title }}
-        class="[&>h3]:text-[20px] font-bold text-primary [&>h3>strong]:text-[36px] [&>h3>strong]:block      "
+        class="relative [&>h3]:text-[20px] font-bold text-primary leading-none pt-[20px] mb-[20px]  lg:[&>h3>strong]:text-[36px] [&>h3>strong]:block px-[15px]
+          after:h-[40px] after:w-[35px] after:border-primary after:border-t after:border-l after:absolute after:top-0 after:left-0 after:hidden lg:after:block
+          before:h-[1px] before:w-[45px] before:border-primary before:border-b-[6px] before:absolute before:bottom-0 before:left-[10px] before:hidden lg:before:block
+          lg:bg-[url(/background-carousel.png)]
+          bg-no-repeat
+          bg-[98%_center]
+        "
       >
       </div>
 
       <div class="relative">
         <Slider
-          class="gap-6 scrollbar-none"
-          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+          class="gap-6 scrollbar-none items-stretch"
+          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 items-stretch flex"
         >
           {products?.map((product) => (
-            <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
+            <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px] flex flex-col items-stretch">
               <ProductCard product={product} itemListName={title} />
             </div>
           ))}

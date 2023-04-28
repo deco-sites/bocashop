@@ -16,27 +16,31 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "in-place";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  noCloseButton?: boolean;
 };
 
 const dialogStyles = {
   "sidebar-right": "animate-slide-left",
   "sidebar-left": "animate-slide-right",
-  center: "animate-fade-in",
+  center: "animate-slide-top",
+  "in-place": "animate-slide-top",
 };
 
 const sectionStyles = {
   "sidebar-right": "justify-end",
   "sidebar-left": "justify-start",
   center: "justify-center items-center",
+  "in-place": "max-w-[1336px] justify-end mx-auto",
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full w-full sm:max-w-lg",
-  "sidebar-left": "h-full w-full sm:max-w-lg",
+  "sidebar-right": "h-full w-full max-w-[75%] sm:max-w-lg",
+  "sidebar-left": "h-full w-full  max-w-[75%] sm:max-w-lg",
   center: "",
+  "in-place": "h-fit mt-[100px]",
 };
 
 const Modal = ({
@@ -46,6 +50,7 @@ const Modal = ({
   onClose,
   children,
   loading,
+  noCloseButton,
   ...props
 }: Props) => {
   const lazy = useSignal(false);
@@ -70,7 +75,7 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
+      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-80 ${
         dialogStyles[mode]
       } ${props.class ?? ""}`}
       onClick={(e) =>
@@ -82,23 +87,37 @@ const Modal = ({
         class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-base-100 flex flex-col max-h-full ${
+          class={`bg-base-100 flex flex-col max-h-full relative ${
             containerStyles[mode]
           }`}
         >
           {title
             ? (
-              <header class="flex px-4 py-6 justify-between items-center border-b border-base-200">
+              <header class="flex px-4 py-[18px] justify-center items-center border-b border-base-200 bg-primary">
                 <h1>
-                  <Text variant="heading-2">{title}</Text>
+                  <span class="text-secondary uppercase text-[16px] leading-none font-bold">
+                    {title}
+                  </span>
                 </h1>
-                <Button variant="icon" onClick={onClose}>
-                  <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-                </Button>
+                {!noCloseButton && (
+                  <Button
+                    variant="icon"
+                    onClick={onClose}
+                    class={`absolute bg-white rounded-full ${
+                      mode == "sidebar-left" ? "right-[-40px]" : "left-[-40px]"
+                    } `}
+                  >
+                    <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+                  </Button>
+                )}
               </header>
             )
-            : (
-              <Button variant="icon" onClick={onClose}>
+            : !noCloseButton && (
+              <Button
+                variant="icon"
+                onClick={onClose}
+                class={`absolute bg-white top-0 right-0 rounded-full`}
+              >
                 <Icon id="XMark" width={20} height={20} strokeWidth={2} />
               </Button>
             )}

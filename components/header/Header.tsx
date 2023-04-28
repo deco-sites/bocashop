@@ -6,7 +6,7 @@ import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
+import { headerHeight, headerHeightMobile } from "./constants.ts";
 
 export interface NavItem {
   label: string;
@@ -61,7 +61,10 @@ function Header(
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
   return (
-    <header style={{ height: headerHeight }}>
+    <header
+      style={{ height: headerHeightMobile }}
+      class={`lg:[${headerHeight}]`}
+    >
       <div class="bg-base-100 fixed w-full z-50">
         <Alert alerts={alerts} />
         <Navbar items={navItems} searchbar={searchbar} logo={logo} />

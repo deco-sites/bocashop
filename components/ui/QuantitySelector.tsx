@@ -32,7 +32,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
   return (
     <div class="flex border border-solid border-base-200">
       <Button
-        class="h-9 w-9"
+        class="h-[30px] w-[30px]  border-base-200 border-r"
         variant="icon"
         onClick={decrement}
         disabled={disabled}
@@ -53,7 +53,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
         onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
       />
       <Button
-        class="h-9 w-9"
+        class="h-[30px] w-[30px] border-base-200 border-l"
         variant="icon"
         onClick={increment}
         disabled={disabled}

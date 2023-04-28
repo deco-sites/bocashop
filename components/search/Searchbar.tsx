@@ -114,7 +114,7 @@ function Searchbar({
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 pl-[15px] border border-base-200 h-[40px]"
+          class="flex-grow flex gap-3 lg:pl-[15px] border-b lg:border border-base-200 h-[40px]"
         >
           <input
             ref={searchInputRef}
@@ -146,10 +146,17 @@ function Searchbar({
             tabIndex={-1}
           >
             <Icon
-              class="text-primary"
+              class="text-primary hidden lg:inline"
               id="MagnifyingGlass"
               width={25}
               height={25}
+              strokeWidth={2}
+            />
+            <Icon
+              class="text-primary lg:hidden inline"
+              id="ChevronRight"
+              width={20}
+              height={20}
               strokeWidth={2}
             />
           </Button>
