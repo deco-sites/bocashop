@@ -63,7 +63,7 @@ function Header(
   return (
     <header
       style={{ height: headerHeightMobile }}
-      class={`lg:[${headerHeight}]`}
+      class={`lg:h-[176px_!important]`}
     >
       <div class="bg-base-100 fixed w-full z-50">
         <Alert alerts={alerts} />

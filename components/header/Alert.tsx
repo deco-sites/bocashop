@@ -23,17 +23,13 @@ function Alert({ alerts = [], interval = 5 }: Props) {
         snap="w-full min-w-full px-4 lg:p-0"
       >
         {alerts.map((alert) => (
-          <Text
-            class="flex m-auto relative text-center w-fit justify-center items-center h-[38px] font-bold 
+          <span class="flex m-auto relative text-center w-fit justify-center items-center h-[38px] font-bold 
             after:hidden lg:after:block
             after:w-[15px] after:h-[15px] after:border-white after:border-b-[1px] after:border-r-[1px] after:absolute after:bottom-[6px] after:right-[-8px]
             before:hidden lg:before:block
-            before:w-[15px] before:h-[15px] before:border-white before:border-t-[1px] before:border-l-[1px] before:absolute before:top-[6px] before:left-[-8px]"
-            variant="body-bold"
-            tone="secondary"
-          >
+            before:w-[15px] before:h-[15px] before:border-white before:border-t-[1px] before:border-l-[1px] before:absolute before:top-[6px] before:left-[-8px] text-secondary text-[13px]">
             {alert}
-          </Text>
+          </span>
         ))}
       </Slider>
 

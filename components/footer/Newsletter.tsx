@@ -14,7 +14,7 @@ function Newsletter() {
           Para recibir oferta y novedades en tu mail
         </Text>
       </div>
-      <form class="flex flex-row items-center font-body text-body w-full sm:w-[400px] h-[45px]">
+      <form class="flex flex-row items-center font-body text-body w-full sm:w-[400px] h-[45px] px-2 lg:px-0">
         <input
           class="py-2 px-3 flex-grow bg-white rounded rounded-e-[0px] text-primary-content h-full"
           placeholder="Ingresá tu email"

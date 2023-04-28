@@ -21,7 +21,7 @@ function FilterValues({ key, values }: FilterToggle) {
 
   return (
     <ul
-      class={`flex lg:absolute bg-white w-full border-base-300 lg:border-[1px] border-t-[0px] p-[15px] left-0 flex-wrap gap-2 ${flexDirection}`}
+      class={`flex lg:absolute bg-white w-full border-base-300 lg:border lg:border-t-[0px] p-[15px] left-0 flex-wrap gap-2 ${flexDirection}`}
     >
       {values.map(({ label, value, url, selected, quantity }) => {
         if (key === "cor") {
