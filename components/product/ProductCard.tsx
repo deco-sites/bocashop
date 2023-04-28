@@ -67,7 +67,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
     property.name == "cucardaLanzamiento"
   );
   const releaseImg = release?.value?.match(/\".*\"/)?.[0].replaceAll('"', "");
-  console.log(skuProperties);
 
   return (
     <div

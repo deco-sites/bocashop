@@ -24,7 +24,6 @@ export default function skuAddToCart({ product, openCart = false }: {
 
   if (!seller) return null;
 
-  console.log(openCart);
   return (
     <ul class="flex justify-center items-center gap-2">
       {options.map(([value, { url, available, id }]) => {

@@ -72,7 +72,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, inventoryLevel, availability } = useOffer(
     offers,
   );
-  const { name, identifier } = isVariantOf ?? {};
+  const { name, identifier } = isVariantOf ??
+    {};
 
   return (
     <>
@@ -106,7 +107,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <div>
           {availability == "https://schema.org/InStock"
             ? "En Stock"
-            : "agotado"}
+            : "Agotado"}
         </div>
       </div>
       {/* Prices */}
@@ -207,8 +208,6 @@ function Details({
   const hasSeal = additionalProperty?.find((property) =>
     property.value == "lanzamiento-away"
   );
-
-  console.log(hasSeal);
 
   /**
    * Product slider variant
