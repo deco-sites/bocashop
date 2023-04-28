@@ -56,7 +56,7 @@ function Avatar(
       <button
         {...btnProps}
         disabled={loading || btnProps.disabled}
-        class={`text-caption text-[12px] border border-base-200 bg-base-100 w-8 h-8 flex justify-center items-center [&:not(:disabled)]:hover:bg-base-300 [&:not(:disabled)]:hover:text-base-100 [&:not(:disabled)]:hover:border-base-300 disabled:opacity-50 ${_class}`}
+        class={`text-caption text-[12px] border border-base-200 bg-base-100 w-fit min-w-[2rem] px-[5px] h-8 flex justify-center items-center [&:not(:disabled)]:hover:bg-base-300 [&:not(:disabled)]:hover:text-base-100 [&:not(:disabled)]:hover:border-base-300 disabled:opacity-50 ${_class}`}
       >
         {/* {content.substring(0, 2)} */}
         {content}

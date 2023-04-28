@@ -29,12 +29,12 @@ function SectionItem({ item }: { item: Item }) {
     <Text variant="caption" tone="base-content">
       {isIcon(item)
         ? (
-          <div class="border-base-100 border border-solid py-1.5 px-2.5">
+          <div class="rounded-full border border-primary text-primary  py-1 px-1 hover:translate-y-2 transition-all">
             <Icon
               id={item.icon}
               width={25}
-              height={20}
-              strokeWidth={0.01}
+              height={25}
+              strokeWidth={1}
             />
           </div>
         )
@@ -82,8 +82,10 @@ function Footer({ sections = [] }: Props) {
 
                     <ul
                       class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
+                        isIcon(section.children[0])
+                          ? "flex-row gap-4 "
+                          : "flex-col gap-2 "
+                      } pt-2 flex-wrap`}
                     >
                       {section.children.map((item) => (
                         <li>
