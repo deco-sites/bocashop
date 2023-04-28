@@ -145,7 +145,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         </Text>
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2 max-w-[200px]">
+      <div class="mt-4 sm:mt-10  hidden lg:flex flex-col gap-2 max-w-[200px]">
         {seller && (
           <AddToCartButton
             skuId={productID}
@@ -155,6 +155,20 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             name={product.name ?? ""}
             productGroupId={product.isVariantOf?.productGroupID ?? ""}
             product={product}
+          />
+        )}
+      </div>
+      <div class="mt-4 sm:mt-10 flex lg:hidden flex-col gap-2 max-w-[200px]">
+        {seller && (
+          <AddToCartButton
+            skuId={productID}
+            sellerId={seller}
+            price={price ?? 0}
+            discount={price && listPrice ? listPrice - price : 0}
+            name={product.name ?? ""}
+            productGroupId={product.isVariantOf?.productGroupID ?? ""}
+            product={product}
+            openCart={true}
           />
         )}
       </div>

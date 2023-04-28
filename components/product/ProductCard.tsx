@@ -108,7 +108,12 @@ function ProductCard({ product, preload, itemListName }: Props) {
             <div class="absolute bottom-[-40px] flex flex-col items-center gap-2 w-full p-2 bg-opacity-100 group-hover:bottom-0 transition-all bg-white border-default border-t-[1px]">
               <Text variant="body-bold" tone="primary">AÑADIR TALLE</Text>
               {/* <Sizes {...product} /> */}
-              <SkuAddToCart product={product} />
+              <div class="hidden lg:flex">
+                <SkuAddToCart product={product} />
+              </div>
+              <div class="flex lg:hidden">
+                <SkuAddToCart product={product} openCart={true} />
+              </div>
             </div>
           )}
         </div>
