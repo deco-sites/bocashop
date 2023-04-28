@@ -40,12 +40,14 @@ export default function skuAddToCart({ product, openCart = false }: {
         });
 
         return (
-          <Avatar
-            variant="abbreviation"
-            content={value}
-            {...props}
-            disabled={!available}
-          />
+          <li>
+            <Avatar
+              variant="abbreviation"
+              content={value}
+              {...props}
+              disabled={!available}
+            />
+          </li>
         );
       })}
     </ul>
