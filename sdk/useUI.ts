@@ -4,15 +4,22 @@
  */
 
 import { signal } from "@preact/signals";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 
 const displayCart = signal(false);
+const displayDesktopCart = signal(false);
 const displayMenu = signal(false);
 const displaySearchbar = signal(false);
+const displayAddToCartPopup = signal<{ open: boolean; product?: Product }>({
+  open: false,
+});
 
 const state = {
   displayCart,
   displayMenu,
   displaySearchbar,
+  displayDesktopCart,
+  displayAddToCartPopup,
 };
 
 export const useUI = () => state;

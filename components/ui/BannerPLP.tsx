@@ -48,7 +48,8 @@ function BannerUI({ banner }: { banner: Banner }) {
         <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
       </Picture>
 
-      <Container class="flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+      {
+        /* <Container class="flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
         <h1>
           <Text variant="heading-1" tone="base-100">
             {title}
@@ -59,7 +60,8 @@ function BannerUI({ banner }: { banner: Banner }) {
             {subtitle}
           </Text>
         </h2>
-      </Container>
+      </Container> */
+      }
     </div>
   );
 }

@@ -17,10 +17,18 @@ import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
-import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 
 import SearchTermList from "./SearchTermList.tsx";
+
+declare global {
+  interface Window {
+    DECO_SITES_STD: {
+      sendAnalyticsEvent: (args: AnalyticsEvent) => void;
+    };
+  }
+}
 
 function CloseButton() {
   const { displaySearchbar } = useUI();
@@ -101,27 +109,13 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:py-6 md:px-20">
-      <div class="flex items-center gap-4">
+    <div class="flex w-full max-w-[550px] flex-col p-4 md:py-6">
+      <div class="flex bg-white items-center gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-base-200"
+          class="flex-grow flex gap-3 lg:pl-[15px] border-b lg:border border-base-200 h-[40px]"
         >
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-base-300"
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </Button>
           <input
             ref={searchInputRef}
             id="search-input"
@@ -132,7 +126,7 @@ function Searchbar({
               const value = e.currentTarget.value;
 
               if (value) {
-                sendAnalyticsEvent({
+                window.DECO_SITES_STD.sendAnalyticsEvent({
                   name: "search",
                   params: { search_term: value },
                 });
@@ -145,21 +139,27 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <button
-            type="button"
-            aria-label="Clean search"
-            class="focus:outline-none"
+          <Button
+            variant="icon"
+            aria-label="Search"
+            htmlFor="searchbar"
             tabIndex={-1}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (searchInputRef.current === null) return;
-
-              searchInputRef.current.value = "";
-              setSearch("");
-            }}
           >
-            <Text variant="caption">limpar</Text>
-          </button>
+            <Icon
+              class="text-primary hidden lg:inline"
+              id="MagnifyingGlass"
+              width={25}
+              height={25}
+              strokeWidth={2}
+            />
+            <Icon
+              class="text-primary lg:hidden inline"
+              id="ChevronRight"
+              width={20}
+              height={20}
+              strokeWidth={2}
+            />
+          </Button>
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>

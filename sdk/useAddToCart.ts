@@ -2,7 +2,16 @@ import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
-import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "deco-sites/std/commerce/types.ts";
+
+declare global {
+  interface Window {
+    DECO_SITES_STD: {
+      sendAnalyticsEvent: (args: AnalyticsEvent) => void;
+    };
+  }
+}
 
 export interface Options {
   skuId: string;
@@ -14,13 +23,24 @@ export interface Options {
    */
   name: string;
   productGroupId: string;
+  openCart?: boolean;
+  product?: Product;
 }
 
 export const useAddToCart = (
-  { skuId, sellerId, price, discount, name, productGroupId }: Options,
+  {
+    skuId,
+    sellerId,
+    price,
+    discount,
+    name,
+    productGroupId,
+    openCart = false,
+    product,
+  }: Options,
 ) => {
   const isAddingToCart = useSignal(false);
-  const { displayCart } = useUI();
+  const { displayCart, displayAddToCartPopup } = useUI();
   const { addItems, loading } = useCart();
 
   const onClick = useCallback(async (e: MouseEvent) => {
@@ -33,11 +53,12 @@ export const useAddToCart = (
 
     try {
       isAddingToCart.value = true;
+
       await addItems({
         orderItems: [{ id: skuId, seller: sellerId, quantity: 1 }],
       });
 
-      sendAnalyticsEvent({
+      window.DECO_SITES_STD.sendAnalyticsEvent({
         name: "add_to_cart",
         params: {
           items: [{
@@ -51,7 +72,13 @@ export const useAddToCart = (
         },
       });
 
-      displayCart.value = true;
+      if (openCart) displayCart.value = true;
+      else {
+        displayAddToCartPopup.value = {
+          product,
+          open: true,
+        };
+      }
     } finally {
       isAddingToCart.value = false;
     }

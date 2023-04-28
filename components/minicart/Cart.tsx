@@ -2,18 +2,26 @@ import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
+import Icon from "../ui/Icon.tsx";
 
-const CHECKOUT_URL =
-  "https://bravtexfashionstore.vtexcommercestable.com.br/checkout";
+declare global {
+  interface Window {
+    DECO_SITES_STD: {
+      sendAnalyticsEvent: (args: AnalyticsEvent) => void;
+    };
+  }
+}
+
+const CHECKOUT_URL = "https://bocashop.vtexcommercestable.com.br/checkout";
 
 function Cart() {
   const { displayCart } = useUI();
-  const { cart, loading, mapItemsToAnalyticsItems } = useCart();
+  const { cart, loading, mapItemsToAnalyticsItems, updateItems } = useCart();
   const isCartEmpty = cart.value?.items.length === 0;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
   const discounts = cart.value?.totalizers.find((item) =>
@@ -29,16 +37,20 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <div class="flex flex-col justify-center items-center h-full gap-6">
-        <Text variant="heading-2">Sua sacola está vazia</Text>
-        <Button
-          variant="outline"
-          onClick={() => {
-            displayCart.value = false;
-          }}
-        >
-          Escolher produtos
-        </Button>
+      <div class="flex flex-col justify-start items-center h-full gap-6 lg:border-primary-focus lg:border-t-8">
+        <div class="relative w-[70px] h-[70px] flex items-center justify-center">
+          <Icon id="ShoppingCart" width={50} height={50} />
+          <Icon
+            id="XMark"
+            width={70}
+            height={70}
+            class="absolute top-0 left-0"
+            strokeWidth={2}
+          />
+        </div>
+        <Text variant="caption">
+          No hay productos en el carrito de compras
+        </Text>
       </div>
     );
   }
@@ -48,7 +60,7 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6"
+        class=" px-2 overflow-y-auto flex flex-col lg:px-[30px] lg:pb-[15px] max-h-[330px] divide-y lg:border-primary-focus lg:border-t-8"
       >
         {cart.value.items.map((_, index) => (
           <li>
@@ -58,9 +70,10 @@ function Cart() {
       </ul>
 
       {/* Cart Footer */}
-      <footer>
+      <footer class="border-t border-base-200 shadow-[0_-7px_10px_rgba(0,0,0,0.2)]  lg:shadow-none">
         {/* Subtotal */}
-        <div class="border-t border-base-200 py-4 flex flex-col gap-4">
+        {
+          /* <div class="border-t border-base-200 py-4 flex flex-col gap-4">
           {discounts?.value && (
             <div class="flex justify-between items-center px-4">
               <Text variant="caption">Descontos</Text>
@@ -69,10 +82,11 @@ function Cart() {
               </Text>
             </div>
           )}
-          <Coupon />
-        </div>
+        </div> */
+        }
         {/* Total */}
-        {total?.value && (
+        {
+          /* {total?.value && (
           <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <Text variant="body">Total</Text>
@@ -84,19 +98,20 @@ function Cart() {
               Taxas e fretes serão calculados no checkout
             </Text>
           </div>
-        )}
-        <div class="p-4">
+        )} */
+        }
+        <div class="p-4 gap-4 flex flex-col">
           <a
-            class="inline-block w-full"
+            class="inline-flex w-full lg:justify-center"
             target="_blank"
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
               data-deco="buy-button"
-              class="w-full"
+              class="w-full uppercase lg:normal-case lg:max-w-[185px] rounded-none text-white font-normal"
               disabled={loading.value || cart.value.items.length === 0}
               onClick={() => {
-                sendAnalyticsEvent({
+                window.DECO_SITES_STD.sendAnalyticsEvent({
                   name: "begin_checkout",
                   params: {
                     currency: cart.value ? currencyCode! : "",
@@ -112,9 +127,35 @@ function Cart() {
                 });
               }}
             >
-              Finalizar Compra
+              <Icon
+                id="ShoppingCart"
+                width={24}
+                height={24}
+                class="hidden lg:inline"
+              />
+              Iniciar Compra
             </Button>
           </a>
+          <Button
+            class="w-full uppercase lg:normal-case bg-transparent text-gray-500 rounded-none"
+            disabled={cart.value.items.length === 0}
+            onClick={() => {
+              updateItems({ orderItems: [] });
+              if (!cart.value) return;
+              window.DECO_SITES_STD.sendAnalyticsEvent({
+                name: "remove_from_cart",
+                params: {
+                  items: mapItemsToAnalyticsItems({
+                    items: cart.value.items,
+                    marketingData: cart.value.marketingData,
+                  }),
+                },
+              });
+            }}
+          >
+            <Icon id="Trash" width={20} height={20} />
+            Vaciar Carrinho
+          </Button>
         </div>
       </footer>
     </>

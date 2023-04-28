@@ -1,4 +1,4 @@
-export { default } from "deco-sites/fashion/components/ui/Features.tsx";
+export { default } from "deco-sites/fashion/islands/Features.tsx";
 export type {
   Feature,
   Props,

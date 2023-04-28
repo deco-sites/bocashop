@@ -5,7 +5,15 @@ import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import QuantitySelector from "deco-sites/fashion/components/ui/QuantitySelector.tsx";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
-import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
+
+declare global {
+  interface Window {
+    DECO_SITES_STD: {
+      sendAnalyticsEvent: (args: AnalyticsEvent) => void;
+    };
+  }
+}
 
 interface Props {
   index: number;
@@ -28,59 +36,79 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row justify-between lg:items-center gap-4 lg:max-w-[334px] py-[15px]">
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
-        class="object-cover object-center"
+        width={80}
+        height={80}
+        class="object-cover object-center lg:border max-h-[80px]"
       />
-      <div class="flex-grow">
-        <Text variant="body">
+      <div class="flex-grow flex flex-col">
+        <Text variant="caption" class="mb-[1rem] uppercase lg:normal-case">
           {name}
         </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="base-300" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="secondary" variant="caption">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </Text>
-        </div>
-        <div class="mt-6 max-w-min">
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) => {
-              updateItems({ orderItems: [{ index, quantity }] });
-              const quantityDiff = quantity - item.quantity;
+        <div class="w-full flex justify-between">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between flex-1 gap-2">
+            <div class="max-w-min">
+              <QuantitySelector
+                disabled={loading.value || isGift}
+                quantity={quantity}
+                onChange={(quantity) => {
+                  updateItems({ orderItems: [{ index, quantity }] });
+                  const quantityDiff = quantity - item.quantity;
 
+                  if (!cart.value) return;
+
+                  window.DECO_SITES_STD.sendAnalyticsEvent({
+                    name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+                    params: {
+                      items: mapItemsToAnalyticsItems({
+                        items: [{
+                          ...item,
+                          quantity: Math.abs(quantityDiff),
+                        }],
+                        marketingData: cart.value.marketingData,
+                      }),
+                    },
+                  });
+                }}
+              />
+            </div>
+            <Text tone="primary" variant="caption">
+              {isGift
+                ? "Grátis"
+                : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+            </Text>
+          </div>
+          <Button
+            onClick={() => {
+              updateItems({ orderItems: [{ index, quantity: 0 }] });
               if (!cart.value) return;
-
-              sendAnalyticsEvent({
-                name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+              window.DECO_SITES_STD.sendAnalyticsEvent({
+                name: "remove_from_cart",
                 params: {
                   items: mapItemsToAnalyticsItems({
-                    items: [{
-                      ...item,
-                      quantity: Math.abs(quantityDiff),
-                    }],
+                    items: [item],
                     marketingData: cart.value.marketingData,
                   }),
                 },
               });
             }}
-          />
+            disabled={loading.value || isGift}
+            loading={loading.value}
+            variant="icon"
+            class="text-red-500 lg:hidden block"
+          >
+            <Icon id="Trash" width={20} height={20} />
+          </Button>
         </div>
       </div>
       <Button
         onClick={() => {
           updateItems({ orderItems: [{ index, quantity: 0 }] });
           if (!cart.value) return;
-          sendAnalyticsEvent({
+          window.DECO_SITES_STD.sendAnalyticsEvent({
             name: "remove_from_cart",
             params: {
               items: mapItemsToAnalyticsItems({
@@ -93,6 +121,7 @@ function CartItem({ index }: Props) {
         disabled={loading.value || isGift}
         loading={loading.value}
         variant="icon"
+        class="text-red-500 hidden lg:block"
       >
         <Icon id="Trash" width={20} height={20} />
       </Button>

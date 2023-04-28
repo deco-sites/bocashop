@@ -6,7 +6,7 @@ import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
+import { headerHeight, headerHeightMobile } from "./constants.ts";
 
 export interface NavItem {
   label: string;
@@ -45,6 +45,8 @@ export interface Props {
    * @title Enable Top Search terms
    */
   suggestions?: LoaderReturnType<Suggestion | null>;
+
+  logo: Image;
 }
 
 function Header(
@@ -54,14 +56,18 @@ function Header(
     products,
     navItems = [],
     suggestions,
+    logo,
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
   return (
-    <header style={{ height: headerHeight }}>
+    <header
+      style={{ height: headerHeightMobile }}
+      class={`lg:h-[176px_!important]`}
+    >
       <div class="bg-base-100 fixed w-full z-50">
         <Alert alerts={alerts} />
-        <Navbar items={navItems} searchbar={searchbar} />
+        <Navbar items={navItems} searchbar={searchbar} logo={logo} />
       </div>
 
       <Modals

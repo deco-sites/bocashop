@@ -26,15 +26,15 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" tone="primary-content">
+    <Text variant="caption" tone="base-content">
       {isIcon(item)
         ? (
-          <div class="border-base-100 border border-solid py-1.5 px-2.5">
+          <div class="rounded-full border border-primary text-primary  py-1 px-1 hover:translate-y-2 transition-all">
             <Icon
               id={item.icon}
               width={25}
-              height={20}
-              strokeWidth={0.01}
+              height={25}
+              strokeWidth={1}
             />
           </div>
         )
@@ -62,27 +62,30 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
+    <footer class="w-full bg-white flex flex-col divide-y divide-primary-content">
       <div>
+        <Newsletter />
         <Container class="w-full flex flex-col divide-y divide-primary-content">
           <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
-
-          <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row justify-center gap-20">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="primary-content">
+                    <Text
+                      variant="body-bold"
+                      tone="primary"
+                      class="text-[12px]"
+                    >
                       {section.label}
                     </Text>
 
                     <ul
                       class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
+                        isIcon(section.children[0])
+                          ? "flex-row gap-4 "
+                          : "flex-col gap-2 "
+                      } pt-2 flex-wrap`}
                     >
                       {section.children.map((item) => (
                         <li>
@@ -99,10 +102,17 @@ function Footer({ sections = [] }: Props) {
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
               {sections.map((section) => (
                 <li>
-                  <Text variant="body" tone="primary-content">
-                    <details>
-                      <summary>
+                  <Text variant="body" tone="primary">
+                    <details class="group">
+                      <summary class="list-none flex justify-between font-bold">
                         {section.label}
+                        <Icon
+                          id="ChevronDown"
+                          width={20}
+                          height={20}
+                          strokeWidth={2}
+                          class="group-open:rotate-180 transition-all"
+                        />
                       </summary>
 
                       <ul

@@ -2295,6 +2295,194 @@
       ],
       "title": "deco-sites/std/commerce/yourViews/client.ts@ConfigYourViews"
     },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Feature": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "User"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Return"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            }
+          ],
+          "type": "string",
+          "description": "Image src",
+          "title": "Icon"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title",
+          "title": "Title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description and Image alt text",
+          "title": "Description"
+        }
+      },
+      "required": [
+        "icon",
+        "title",
+        "description"
+      ],
+      "title": "Feature"
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Feature[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Feature"
+      },
+      "title": "Feature[]"
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "features": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Feature[]",
+          "title": "Features"
+        }
+      },
+      "required": [
+        "features"
+      ],
+      "title": "deco-sites/bocashop/components/ui/Features.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -2318,7 +2506,7 @@
       ],
       "title": "SKU"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvU2hpcHBpbmdTaW11bGF0aW9uLnRzeA==@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL1NoaXBwaW5nU2ltdWxhdGlvbi50c3g=@Props": {
       "type": "object",
       "properties": {
         "items": {
@@ -2332,7 +2520,7 @@
       "required": [
         "items"
       ],
-      "title": "deco-sites/fashion/components/ui/ShippingSimulation.tsx@Props"
+      "title": "deco-sites/bocashop/components/ui/ShippingSimulation.tsx@Props"
     },
     "ZGVjby1jeC9saXZlL2Jsb2Nrcy9wYWdlLnRz@Page": {
       "$ref": "#/root/pages",
@@ -2577,7 +2765,7 @@
       "format": "image-uri",
       "title": "Image"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Banner": {
       "type": "object",
       "properties": {
         "srcMobile": {
@@ -2606,14 +2794,148 @@
       ],
       "title": "Banner"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "none"
+                },
+                {
+                  "type": "string",
+                  "const": "sm"
+                },
+                {
+                  "type": "string",
+                  "const": "md"
+                },
+                {
+                  "type": "string",
+                  "const": "lg"
+                },
+                {
+                  "type": "string",
+                  "const": "xl"
+                },
+                {
+                  "type": "string",
+                  "const": "2xl"
+                },
+                {
+                  "type": "string",
+                  "const": "3xl"
+                },
+                {
+                  "type": "string",
+                  "const": "full"
+                }
+              ],
+              "type": "string",
+              "title": "Mobile"
+            },
+            "desktop": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "none"
+                },
+                {
+                  "type": "string",
+                  "const": "sm"
+                },
+                {
+                  "type": "string",
+                  "const": "md"
+                },
+                {
+                  "type": "string",
+                  "const": "lg"
+                },
+                {
+                  "type": "string",
+                  "const": "xl"
+                },
+                {
+                  "type": "string",
+                  "const": "2xl"
+                },
+                {
+                  "type": "string",
+                  "const": "3xl"
+                },
+                {
+                  "type": "string",
+                  "const": "full"
+                }
+              ],
+              "type": "string",
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Border Radius",
+          "description": "Item's border radius in px"
+        },
+        "banner": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Banner",
+          "title": "Banner"
+        }
+      },
+      "required": [
+        "borderRadius",
+        "banner"
+      ],
+      "title": "deco-sites/bocashop/components/ui/BannerFull.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner": {
+      "type": "object",
+      "properties": {
+        "srcMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Mobile"
+        },
+        "srcDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Desktop"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image alt text",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "description": "When you click you go to",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "srcMobile",
+        "alt",
+        "href"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner"
       },
       "title": "Banner[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -2755,19 +3077,24 @@
           "title": "Border Radius",
           "description": "Item's border radius in px"
         },
+        "bannerMain": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner",
+          "title": "Banner Main"
+        },
         "banners": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Banner[]",
           "title": "Banners"
         }
       },
       "required": [
         "itemsPerLine",
         "borderRadius",
+        "bannerMain",
         "banners"
       ],
-      "title": "deco-sites/fashion/components/ui/BannerGrid.tsx@Props"
+      "title": "deco-sites/bocashop/components/ui/BannerGrid.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lclBMUC50c3g=@Banner": {
       "type": "object",
       "properties": {
         "matcher": {
@@ -2823,14 +3150,14 @@
       ],
       "title": "Banner"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lclBMUC50c3g=@Banner[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lclBMUC50c3g=@Banner"
       },
       "title": "Banner[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lclBMUC50c3g=@Props": {
       "type": "object",
       "properties": {
         "page": {
@@ -2838,14 +3165,14 @@
           "title": "Page"
         },
         "banners": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lclBMUC50c3g=@Banner[]",
           "title": "Banners"
         }
       },
       "required": [],
-      "title": "deco-sites/fashion/components/ui/BannerPLP.tsx@Props"
+      "title": "deco-sites/bocashop/components/ui/BannerPLP.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckNhcm91c2VsLnRzeA==@Banner": {
       "type": "object",
       "properties": {
         "desktop": {
@@ -2870,14 +3197,6 @@
               "type": "string",
               "title": "Href"
             },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
             "label": {
               "type": "string",
               "title": "Label"
@@ -2885,8 +3204,6 @@
           },
           "required": [
             "href",
-            "title",
-            "subTitle",
             "label"
           ],
           "title": "Action"
@@ -2895,22 +3212,23 @@
       "required": [
         "desktop",
         "mobile",
-        "alt"
+        "alt",
+        "action"
       ],
       "title": "Banner"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckNhcm91c2VsLnRzeA==@Banner[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckNhcm91c2VsLnRzeA==@Banner"
       },
       "title": "Banner[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckNhcm91c2VsLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "images": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckNhcm91c2VsLnRzeA==@Banner[]",
           "title": "Images"
         },
         "preload": {
@@ -2931,9 +3249,9 @@
         }
       },
       "required": [],
-      "title": "deco-sites/fashion/components/ui/BannerCarousel.tsx@Props"
+      "title": "deco-sites/bocashop/components/ui/BannerCarousel.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Colors": {
       "type": "object",
       "properties": {
         "primary": {
@@ -3139,200 +3457,18 @@
       ],
       "title": "Colors"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Props": {
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Colors",
           "title": "Colors"
         }
       },
-      "required": [
-        "colors"
-      ],
-      "title": "deco-sites/fashion/sections/DesignSystem.tsx@Props"
+      "required": [],
+      "title": "deco-sites/bocashop/sections/DesignSystem.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Feature": {
-      "type": "object",
-      "properties": {
-        "icon": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "ChevronLeft"
-            },
-            {
-              "type": "string",
-              "const": "ChevronRight"
-            },
-            {
-              "type": "string",
-              "const": "ChevronUp"
-            },
-            {
-              "type": "string",
-              "const": "ChevronDown"
-            },
-            {
-              "type": "string",
-              "const": "QuestionMarkCircle"
-            },
-            {
-              "type": "string",
-              "const": "User"
-            },
-            {
-              "type": "string",
-              "const": "ShoppingCart"
-            },
-            {
-              "type": "string",
-              "const": "Bars3"
-            },
-            {
-              "type": "string",
-              "const": "Heart"
-            },
-            {
-              "type": "string",
-              "const": "MagnifyingGlass"
-            },
-            {
-              "type": "string",
-              "const": "XMark"
-            },
-            {
-              "type": "string",
-              "const": "Plus"
-            },
-            {
-              "type": "string",
-              "const": "Minus"
-            },
-            {
-              "type": "string",
-              "const": "MapPin"
-            },
-            {
-              "type": "string",
-              "const": "Phone"
-            },
-            {
-              "type": "string",
-              "const": "Elo"
-            },
-            {
-              "type": "string",
-              "const": "Mastercard"
-            },
-            {
-              "type": "string",
-              "const": "Visa"
-            },
-            {
-              "type": "string",
-              "const": "Pix"
-            },
-            {
-              "type": "string",
-              "const": "Logo"
-            },
-            {
-              "type": "string",
-              "const": "Facebook"
-            },
-            {
-              "type": "string",
-              "const": "Instagram"
-            },
-            {
-              "type": "string",
-              "const": "Tiktok"
-            },
-            {
-              "type": "string",
-              "const": "Truck"
-            },
-            {
-              "type": "string",
-              "const": "Discount"
-            },
-            {
-              "type": "string",
-              "const": "Return"
-            },
-            {
-              "type": "string",
-              "const": "CreditCard"
-            },
-            {
-              "type": "string",
-              "const": "Deco"
-            },
-            {
-              "type": "string",
-              "const": "Discord"
-            },
-            {
-              "type": "string",
-              "const": "Trash"
-            },
-            {
-              "type": "string",
-              "const": "FilterList"
-            },
-            {
-              "type": "string",
-              "const": "WhatsApp"
-            },
-            {
-              "type": "string",
-              "const": "ArrowsPointingOut"
-            }
-          ],
-          "type": "string",
-          "description": "Image src",
-          "title": "Icon"
-        },
-        "title": {
-          "type": "string",
-          "description": "Title",
-          "title": "Title"
-        },
-        "description": {
-          "type": "string",
-          "description": "Description and Image alt text",
-          "title": "Description"
-        }
-      },
-      "required": [
-        "icon",
-        "title",
-        "description"
-      ],
-      "title": "Feature"
-    },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Feature[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Feature"
-      },
-      "title": "Feature[]"
-    },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Props": {
-      "type": "object",
-      "properties": {
-        "features": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Feature[]",
-          "title": "Features"
-        }
-      },
-      "required": [
-        "features"
-      ],
-      "title": "deco-sites/fashion/components/ui/Features.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@StringItem": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@StringItem": {
       "type": "object",
       "properties": {
         "label": {
@@ -3350,7 +3486,7 @@
       ],
       "title": "StringItem"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem": {
       "type": "object",
       "properties": {
         "icon": {
@@ -3486,6 +3622,14 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
             }
           ],
           "type": "string",
@@ -3497,25 +3641,25 @@
       ],
       "title": "IconItem"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem|StringItem": {
       "anyOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@StringItem"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@StringItem"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem"
         }
       ],
       "title": "IconItem|StringItem"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem|StringItem[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem|StringItem"
       },
       "title": "IconItem|StringItem[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Section": {
       "type": "object",
       "properties": {
         "label": {
@@ -3523,7 +3667,7 @@
           "title": "Label"
         },
         "children": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem|StringItem[]",
           "title": "Children"
         }
       },
@@ -3533,25 +3677,25 @@
       ],
       "title": "Section"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Section[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Section"
       },
       "title": "Section[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Props": {
       "type": "object",
       "properties": {
         "sections": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Section[]",
           "title": "Sections"
         }
       },
       "required": [],
-      "title": "deco-sites/fashion/components/footer/Footer.tsx@Props"
+      "title": "deco-sites/bocashop/components/footer/Footer.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hiYXIudHN4@EditableProps": {
       "type": "object",
       "properties": {
         "placeholder": {
@@ -3592,7 +3736,7 @@
       "required": [],
       "title": "EditableProps"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem": {
       "type": "object",
       "properties": {
         "label": {
@@ -3670,14 +3814,14 @@
       ],
       "title": "NavItem"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem"
       },
       "title": "NavItem[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@Props": {
       "type": "object",
       "properties": {
         "alerts": {
@@ -3688,11 +3832,11 @@
           "title": "Alerts"
         },
         "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hiYXIudHN4@EditableProps",
           "title": "Searchbar"
         },
         "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]",
           "title": "Nav Items",
           "description": "Navigation items used both on mobile and desktop menus"
         },
@@ -3704,24 +3848,21 @@
         "suggestions": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
           "title": "Suggestions"
+        },
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Logo"
         }
       },
       "required": [
-        "alerts"
+        "alerts",
+        "logo"
       ],
-      "title": "deco-sites/fashion/components/header/Header.tsx@Props"
+      "title": "deco-sites/bocashop/components/header/Header.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvSGlnaGxpZ2h0cy50c3g=@Highlight": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Highlight": {
       "type": "object",
       "properties": {
-        "src": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src"
-        },
-        "alt": {
-          "type": "string",
-          "title": "Alt"
-        },
         "href": {
           "type": "string",
           "title": "Href"
@@ -3732,38 +3873,30 @@
         }
       },
       "required": [
-        "src",
-        "alt",
         "href",
         "label"
       ],
       "title": "Highlight"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvSGlnaGxpZ2h0cy50c3g=@Highlight[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Highlight[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvSGlnaGxpZ2h0cy50c3g=@Highlight"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Highlight"
       },
       "title": "Highlight[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvSGlnaGxpZ2h0cy50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Props": {
       "type": "object",
       "properties": {
         "highlights": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvSGlnaGxpZ2h0cy50c3g=@Highlight[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Highlight[]",
           "title": "Highlights"
-        },
-        "title": {
-          "type": "string",
-          "title": "Title"
         }
       },
-      "required": [
-        "title"
-      ],
-      "title": "deco-sites/fashion/components/ui/Highlights.tsx@Props"
+      "required": [],
+      "title": "deco-sites/bocashop/components/ui/Highlights.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Link": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Link": {
       "type": "object",
       "properties": {
         "label": {
@@ -3781,14 +3914,14 @@
       ],
       "title": "Link"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Link[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Link[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Link"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Link"
       },
       "title": "Link[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Social": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Social": {
       "type": "object",
       "properties": {
         "label": {
@@ -3816,14 +3949,14 @@
       ],
       "title": "Social"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Social[]": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Social[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Social"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Social"
       },
       "title": "Social[]"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -3841,7 +3974,7 @@
           "title": "Description"
         },
         "links": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Link[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Link[]",
           "title": "Links"
         },
         "bgImage": {
@@ -3853,14 +3986,14 @@
           "title": "Avatar"
         },
         "social": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Social[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Social[]",
           "title": "Social"
         }
       },
       "required": [],
-      "title": "deco-sites/fashion/components/ui/LinkTree.tsx@Props"
+      "title": "deco-sites/bocashop/components/ui/LinkTree.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdERldGFpbHMudHN4@Props": {
       "type": "object",
       "properties": {
         "page": {
@@ -3890,13 +4023,18 @@
       "required": [
         "page"
       ],
-      "title": "deco-sites/fashion/components/product/ProductDetails.tsx@Props"
+      "title": "deco-sites/bocashop/components/product/ProductDetails.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0U2hlbGYudHN4@Props": {
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
+      "type": "string",
+      "format": "html",
+      "title": "HTML"
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdFNoZWxmLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "title": {
-          "type": "string",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Title"
         },
         "products": {
@@ -3915,9 +4053,9 @@
         "title",
         "products"
       ],
-      "title": "deco-sites/fashion/components/product/ProductShelf.tsx@Props"
+      "title": "deco-sites/bocashop/components/product/ProductShelf.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0R2FsbGVyeS50c3g=@Columns": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdEdhbGxlcnkudHN4@Columns": {
       "type": "object",
       "properties": {
         "mobile": {
@@ -3938,7 +4076,7 @@
       "required": [],
       "title": "Columns"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hSZXN1bHQudHN4@Props": {
       "type": "object",
       "properties": {
         "page": {
@@ -3961,7 +4099,7 @@
           "title": "Variant"
         },
         "columns": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0R2FsbGVyeS50c3g=@Columns",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdEdhbGxlcnkudHN4@Columns",
           "description": "Number of products per line on grid",
           "title": "Columns"
         }
@@ -3970,9 +4108,9 @@
         "page",
         "columns"
       ],
-      "title": "deco-sites/fashion/components/search/SearchResult.tsx@Props"
+      "title": "deco-sites/bocashop/components/search/SearchResult.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvV2hhdHNBcHAudHN4@Props": {
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL1doYXRzQXBwLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "phone": {
@@ -3984,7 +4122,7 @@
         }
       },
       "required": [],
-      "title": "deco-sites/fashion/components/ui/WhatsApp.tsx@Props"
+      "title": "deco-sites/bocashop/components/ui/WhatsApp.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9BbmFseXRpY3MudHN4@Props": {
       "type": "object",
@@ -4776,6 +4914,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0ZlYXR1cmVzLnRzeA==": {
+      "title": "./islands/Features.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Features.tsx"
+          ],
+          "default": "./islands/Features.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -4840,6 +4999,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Njcm9sbFRyYWNrSlMudHN4": {
+      "title": "./islands/ScrollTrackJS.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ScrollTrackJS.tsx"
+          ],
+          "default": "./islands/ScrollTrackJS.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA==": {
       "title": "./islands/SearchControls.tsx",
       "type": "object",
@@ -4877,7 +5052,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvU2hpcHBpbmdTaW11bGF0aW9uLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL1NoaXBwaW5nU2ltdWxhdGlvbi50c3g=@Props"
         }
       ],
       "required": [
@@ -4890,6 +5065,22 @@
             "./islands/ShippingSimulation.tsx"
           ],
           "default": "./islands/ShippingSimulation.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL1NrdUFkZFRvQ2FydC50c3g=": {
+      "title": "./islands/SkuAddToCart.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/SkuAddToCart.tsx"
+          ],
+          "default": "./islands/SkuAddToCart.tsx"
         }
       }
     },
@@ -5109,12 +5300,12 @@
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Jhbm5lckdyaWQudHN4": {
-      "title": "deco-sites/fashion/sections/BannerGrid.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJGdWxsLnRzeA==": {
+      "title": "deco-sites/bocashop/sections/BannerFull.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckZ1bGwudHN4@Props"
         }
       ],
       "required": [
@@ -5124,18 +5315,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/BannerGrid.tsx"
+            "deco-sites/bocashop/sections/BannerFull.tsx"
           ],
-          "default": "deco-sites/fashion/sections/BannerGrid.tsx"
+          "default": "deco-sites/bocashop/sections/BannerFull.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Jhbm5lclBMUC50c3g=": {
-      "title": "deco-sites/fashion/sections/BannerPLP.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJHcmlkLnRzeA==": {
+      "title": "deco-sites/bocashop/sections/BannerGrid.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckdyaWQudHN4@Props"
         }
       ],
       "required": [
@@ -5145,18 +5336,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/BannerPLP.tsx"
+            "deco-sites/bocashop/sections/BannerGrid.tsx"
           ],
-          "default": "deco-sites/fashion/sections/BannerPLP.tsx"
+          "default": "deco-sites/bocashop/sections/BannerGrid.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA==": {
-      "title": "deco-sites/fashion/sections/Carousel.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJQTFAudHN4": {
+      "title": "deco-sites/bocashop/sections/BannerPLP.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lclBMUC50c3g=@Props"
         }
       ],
       "required": [
@@ -5166,34 +5357,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/Carousel.tsx"
+            "deco-sites/bocashop/sections/BannerPLP.tsx"
           ],
-          "default": "deco-sites/fashion/sections/Carousel.tsx"
+          "default": "deco-sites/bocashop/sections/BannerPLP.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Nvb2tpZUNvbnNlbnQudHN4": {
-      "title": "deco-sites/fashion/sections/CookieConsent.tsx",
-      "type": "object",
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "deco-sites/fashion/sections/CookieConsent.tsx"
-          ],
-          "default": "deco-sites/fashion/sections/CookieConsent.tsx"
-        }
-      }
-    },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=": {
-      "title": "deco-sites/fashion/sections/DesignSystem.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9DYXJvdXNlbC50c3g=": {
+      "title": "deco-sites/bocashop/sections/Carousel.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0Jhbm5lckNhcm91c2VsLnRzeA==@Props"
         }
       ],
       "required": [
@@ -5203,20 +5378,15 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/DesignSystem.tsx"
+            "deco-sites/bocashop/sections/Carousel.tsx"
           ],
-          "default": "deco-sites/fashion/sections/DesignSystem.tsx"
+          "default": "deco-sites/bocashop/sections/Carousel.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0ZlYXR1cmVzLnRzeA==": {
-      "title": "deco-sites/fashion/sections/Features.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Db29raWVDb25zZW50LnRzeA==": {
+      "title": "deco-sites/bocashop/sections/CookieConsent.tsx",
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Props"
-        }
-      ],
       "required": [
         "__resolveType"
       ],
@@ -5224,18 +5394,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/Features.tsx"
+            "deco-sites/bocashop/sections/CookieConsent.tsx"
           ],
-          "default": "deco-sites/fashion/sections/Features.tsx"
+          "default": "deco-sites/bocashop/sections/CookieConsent.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Zvb3Rlci50c3g=": {
-      "title": "deco-sites/fashion/sections/Footer.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4": {
+      "title": "deco-sites/bocashop/sections/DesignSystem.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Props"
         }
       ],
       "required": [
@@ -5245,18 +5415,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/Footer.tsx"
+            "deco-sites/bocashop/sections/DesignSystem.tsx"
           ],
-          "default": "deco-sites/fashion/sections/Footer.tsx"
+          "default": "deco-sites/bocashop/sections/DesignSystem.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0hlYWRlci50c3g=": {
-      "title": "deco-sites/fashion/sections/Header.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9GZWF0dXJlcy50c3g=": {
+      "title": "deco-sites/bocashop/sections/Features.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Props"
         }
       ],
       "required": [
@@ -5266,18 +5436,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/Header.tsx"
+            "deco-sites/bocashop/sections/Features.tsx"
           ],
-          "default": "deco-sites/fashion/sections/Header.tsx"
+          "default": "deco-sites/bocashop/sections/Features.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0hpZ2hsaWdodHMudHN4": {
-      "title": "deco-sites/fashion/sections/Highlights.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Gb290ZXIudHN4": {
+      "title": "deco-sites/bocashop/sections/Footer.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvSGlnaGxpZ2h0cy50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Props"
         }
       ],
       "required": [
@@ -5287,18 +5457,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/Highlights.tsx"
+            "deco-sites/bocashop/sections/Footer.tsx"
           ],
-          "default": "deco-sites/fashion/sections/Highlights.tsx"
+          "default": "deco-sites/bocashop/sections/Footer.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0xpbmtUcmVlLnRzeA==": {
-      "title": "deco-sites/fashion/sections/LinkTree.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9IZWFkZXIudHN4": {
+      "title": "deco-sites/bocashop/sections/Header.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@Props"
         }
       ],
       "required": [
@@ -5308,18 +5478,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/LinkTree.tsx"
+            "deco-sites/bocashop/sections/Header.tsx"
           ],
-          "default": "deco-sites/fashion/sections/LinkTree.tsx"
+          "default": "deco-sites/bocashop/sections/Header.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1Byb2R1Y3REZXRhaWxzLnRzeA==": {
-      "title": "deco-sites/fashion/sections/ProductDetails.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9IaWdobGlnaHRzLnRzeA==": {
+      "title": "deco-sites/bocashop/sections/Highlights.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0hpZ2hsaWdodHMudHN4@Props"
         }
       ],
       "required": [
@@ -5329,18 +5499,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/ProductDetails.tsx"
+            "deco-sites/bocashop/sections/Highlights.tsx"
           ],
-          "default": "deco-sites/fashion/sections/ProductDetails.tsx"
+          "default": "deco-sites/bocashop/sections/Highlights.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1Byb2R1Y3RTaGVsZi50c3g=": {
-      "title": "deco-sites/fashion/sections/ProductShelf.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9MaW5rVHJlZS50c3g=": {
+      "title": "deco-sites/bocashop/sections/LinkTree.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0U2hlbGYudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL0xpbmtUcmVlLnRzeA==@Props"
         }
       ],
       "required": [
@@ -5350,18 +5520,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/ProductShelf.tsx"
+            "deco-sites/bocashop/sections/LinkTree.tsx"
           ],
-          "default": "deco-sites/fashion/sections/ProductShelf.tsx"
+          "default": "deco-sites/bocashop/sections/LinkTree.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1NlYXJjaFJlc3VsdC50c3g=": {
-      "title": "deco-sites/fashion/sections/SearchResult.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Qcm9kdWN0RGV0YWlscy50c3g=": {
+      "title": "deco-sites/bocashop/sections/ProductDetails.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdERldGFpbHMudHN4@Props"
         }
       ],
       "required": [
@@ -5371,18 +5541,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/SearchResult.tsx"
+            "deco-sites/bocashop/sections/ProductDetails.tsx"
           ],
-          "default": "deco-sites/fashion/sections/SearchResult.tsx"
+          "default": "deco-sites/bocashop/sections/ProductDetails.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1doYXRzQXBwLnRzeA==": {
-      "title": "deco-sites/fashion/sections/WhatsApp.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Qcm9kdWN0U2hlbGYudHN4": {
+      "title": "deco-sites/bocashop/sections/ProductShelf.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvdWkvV2hhdHNBcHAudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3Byb2R1Y3QvUHJvZHVjdFNoZWxmLnRzeA==@Props"
         }
       ],
       "required": [
@@ -5392,18 +5562,18 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/WhatsApp.tsx"
+            "deco-sites/bocashop/sections/ProductShelf.tsx"
           ],
-          "default": "deco-sites/fashion/sections/WhatsApp.tsx"
+          "default": "deco-sites/bocashop/sections/ProductShelf.tsx"
         }
       }
     },
-    "ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1dpc2hsaXN0R2FsbGVyeS50c3g=": {
-      "title": "deco-sites/fashion/sections/WishlistGallery.tsx",
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9TZWFyY2hSZXN1bHQudHN4": {
+      "title": "deco-sites/bocashop/sections/SearchResult.tsx",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hSZXN1bHQudHN4@Props"
         }
       ],
       "required": [
@@ -5413,9 +5583,51 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "deco-sites/fashion/sections/WishlistGallery.tsx"
+            "deco-sites/bocashop/sections/SearchResult.tsx"
           ],
-          "default": "deco-sites/fashion/sections/WishlistGallery.tsx"
+          "default": "deco-sites/bocashop/sections/SearchResult.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9XaGF0c0FwcC50c3g=": {
+      "title": "deco-sites/bocashop/sections/WhatsApp.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3VpL1doYXRzQXBwLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bocashop/sections/WhatsApp.tsx"
+          ],
+          "default": "deco-sites/bocashop/sections/WhatsApp.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9XaXNobGlzdEdhbGxlcnkudHN4": {
+      "title": "deco-sites/bocashop/sections/WishlistGallery.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hSZXN1bHQudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/bocashop/sections/WishlistGallery.tsx"
+          ],
+          "default": "deco-sites/bocashop/sections/WishlistGallery.tsx"
         }
       }
     },
@@ -5922,6 +6134,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0FkZFRvQ2FydEJ1dHRvbi50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0ZlYXR1cmVzLnRzeA=="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="
         },
         {
@@ -5934,6 +6149,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Njcm9sbFRyYWNrSlMudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="
         },
         {
@@ -5941,6 +6159,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NoaXBwaW5nU2ltdWxhdGlvbi50c3g="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1NrdUFkZFRvQ2FydC50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="
@@ -6000,49 +6221,52 @@
           "$ref": "#/definitions/JGxpdmUvc2VjdGlvbnMvVXNlU2xvdC50c3g="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Jhbm5lckdyaWQudHN4"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJGdWxsLnRzeA=="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Jhbm5lclBMUC50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJHcmlkLnRzeA=="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA=="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9CYW5uZXJQTFAudHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Nvb2tpZUNvbnNlbnQudHN4"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9DYXJvdXNlbC50c3g="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Db29raWVDb25zZW50LnRzeA=="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0ZlYXR1cmVzLnRzeA=="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0Zvb3Rlci50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9GZWF0dXJlcy50c3g="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0hlYWRlci50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Gb290ZXIudHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0hpZ2hsaWdodHMudHN4"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9IZWFkZXIudHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL0xpbmtUcmVlLnRzeA=="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9IaWdobGlnaHRzLnRzeA=="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1Byb2R1Y3REZXRhaWxzLnRzeA=="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9MaW5rVHJlZS50c3g="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1Byb2R1Y3RTaGVsZi50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Qcm9kdWN0RGV0YWlscy50c3g="
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1NlYXJjaFJlc3VsdC50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9Qcm9kdWN0U2hlbGYudHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1doYXRzQXBwLnRzeA=="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9TZWFyY2hSZXN1bHQudHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9mYXNoaW9uL3NlY3Rpb25zL1dpc2hsaXN0R2FsbGVyeS50c3g="
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9XaGF0c0FwcC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2Nhc2hvcC9zZWN0aW9ucy9XaXNobGlzdEdhbGxlcnkudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvc2VjdGlvbnMvQW5hbHl0aWNzLnRzeA=="

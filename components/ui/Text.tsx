@@ -11,6 +11,7 @@ type Props = Omit<JSX.IntrinsicElements["span"], "aria-level"> & {
     | "menu"
     | "button"
     | "body"
+    | "body-bold"
     | "caption"
     | "list-price";
   "aria-level"?: number;
@@ -23,6 +24,7 @@ const VARIANT_STYLES = {
   "menu": "font-menu text-menu",
   "button": "font-button text-button",
   "body": "font-body text-body",
+  "body-bold": "font-bold text-body",
   "caption": "font-caption text-caption",
   "list-price": "font-list-price text-list-price",
 };

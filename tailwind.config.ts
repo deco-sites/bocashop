@@ -1,66 +1,34 @@
-const pallet = {
-  "primary": "var(--color-primary)",
-  "primary-focus": "var(--color-primary-focus)",
-  "primary-content": "var(--color-primary-content)",
-
-  "secondary": "var(--color-secondary)",
-  "secondary-focus": "var(--color-secondary-focus)",
-  "secondary-content": "var(--color-secondary-content)",
-
-  "accent": "var(--color-accent)",
-  "accent-focus": "var(--color-accent-focus)",
-  "accent-content": "var(--color-accent-content)",
-
-  "neutral": "var(--color-neutral)",
-  "neutral-focus": "var(--color-neutral-focus)",
-  "neutral-content": "var(--color-neutral-content)",
-
-  "base-100": "var(--color-base-100)",
-  "base-200": "var(--color-base-200)",
-  "base-300": "var(--color-base-300)",
-  "base-content": "var(--color-base-content)",
-
-  "success": "var(--color-success)",
-  "success-content": "var(--color-success-content)",
-
-  "warning": "var(--color-warning)",
-  "warning-content": "var(--color-warning-content)",
-
-  "error": "var(--color-error)",
-  "error-content": "var(--color-error-content)",
-
-  "info": "var(--color-info)",
-  "info-content": "var(--color-info-content)",
-
-  "transparent": "transparent",
+// Daisi UI theme
+export const theme = {
+  "primary": "#00438a",
+  "secondary": "#fabe08",
+  "accent": "hsl(150 100% 50%)",
+  "neutral": "hsl(0 0% 20%)",
+  "base-100": "hsl(0 0% 100%)",
+  "success": "hsl(150 62% 95%)",
+  "warning": "hsl(43 100% 95%)",
+  "error": "hsl(9 100% 95%)",
+  "info": "hsl(220 100% 97%)",
 };
 
-module.exports = {
+export default {
   content: ["./**/*.tsx"],
   theme: {
     extend: {
-      colors: pallet,
-      textColor: pallet,
-      borderColor: pallet,
-      outline: Object.fromEntries(
-        Object.entries(pallet).map((
-          [key, value],
-        ) => [key, [`1px solid ${value}`, "1px"]]),
-      ),
       fontSize: {
         "heading-1": ["56px", "67.2px"],
-        "heading-2": ["24px", "28.8px"],
+        "heading-2": ["32px", "28.8px"],
         "heading-3": ["20px", "24px"],
-        "menu": ["16px", "20px"],
+        "menu": ["13px", "16px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
-        "heading-1": "500",
-        "heading-2": "500",
-        "heading-3": "500",
+        "heading-1": "700",
+        "heading-2": "700",
+        "heading-3": "700",
         "menu": "400",
         "button": "700",
         "body": "400",
@@ -71,6 +39,7 @@ module.exports = {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
+        "slide-top": "slide-top-frame 0.4s ease normal",
         "progress": "progress-frame ease normal",
       },
       keyframes: {
@@ -84,6 +53,10 @@ module.exports = {
         },
         "slide-bottom-frame": {
           from: { transform: "translateY(100%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "slide-top-frame": {
+          from: { transform: "translateY(-100%)" },
           to: { transform: "translateY(0)" },
         },
         "progress-frame": {
@@ -114,5 +87,4 @@ module.exports = {
       "2xl": "1536px",
     },
   },
-  plugins: [],
 };

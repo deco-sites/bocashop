@@ -20,11 +20,10 @@ function SearchControls(
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 sm:mb-0 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-base-200">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+    <div class="flex flex-col justify-between mb-4 p-4 pl-0 sm:mb-0 sm:gap-4 sm:flex-row items-start z-10 relative">
+      <div class="hidden lg:block">
+        <Filters filters={filters} />
       </div>
-
       <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
         <Button
           class={displayFilter ? "" : "sm:hidden"}
@@ -33,10 +32,12 @@ function SearchControls(
             open.value = true;
           }}
         >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
+          ordenar / Filtrar
+          <Icon id="ChevronDown" width={12} height={12} strokeWidth={1} />
         </Button>
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        <div class="hidden lg:block">
+          {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        </div>
       </div>
 
       <Modal
@@ -48,6 +49,7 @@ function SearchControls(
           open.value = false;
         }}
       >
+        <Sort sortOptions={sortOptions} />
         <Filters filters={filters} />
       </Modal>
     </div>

@@ -6,6 +6,9 @@ export const formatPrice = (
   const formatter = new Intl.NumberFormat(locale, {
     style: "currency",
     currency,
+    currencyDisplay: "narrowSymbol",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   });
 
   if (!price) {
