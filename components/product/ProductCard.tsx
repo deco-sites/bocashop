@@ -63,6 +63,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const { name, additionalProperty: skuProperties } = isVariantOf ?? {};
 
   const genre = skuProperties?.find((property) => property.name == "Género");
+  const release = skuProperties?.find((property) =>
+    property.name == "cucardaLanzamiento"
+  );
+  const releaseImg = release?.value?.match(/\".*\"/)?.[0].replaceAll('"', "");
   console.log(skuProperties);
 
   return (
@@ -91,6 +95,16 @@ function ProductCard({ product, preload, itemListName }: Props) {
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
+          {releaseImg && (
+            <Image
+              alt="lanziamento"
+              src={`https://bocashop.vteximg.com.br${releaseImg}`}
+              width={150}
+              height={150}
+              class="absolute top-[-15px] right-[-15px]"
+              loading="lazy"
+            />
+          )}
           {seller && (
             <div class="absolute bottom-[-40px] flex flex-col items-center gap-2 w-full p-2 bg-opacity-100 group-hover:bottom-0 transition-all bg-white border-default border-t-[1px]">
               <Text variant="body-bold" tone="primary">AÑADIR TALLE</Text>
